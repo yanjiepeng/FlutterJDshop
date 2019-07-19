@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myjd/pages/tabs/Tab.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,12 +13,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('JDSHOP'),
-        ),
-        body: Text('123'),
-      ),
+      home: Tabs(),
     );
   }
 }
