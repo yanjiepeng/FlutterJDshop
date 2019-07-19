@@ -8,6 +8,6 @@ class MinePage extends StatefulWidget {
 class _MineeState extends State<MinePage> {
   @override
   Widget build(BuildContext context) {
-    return Text('购物车');
+    return Text('我的');
   }
 }

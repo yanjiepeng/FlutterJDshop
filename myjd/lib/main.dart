@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myjd/pages/tabs/Tab.dart';
-
+import 'package:myjd/routes/route.dart' as prefix0;
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -13,7 +12,9 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home: Tabs(),
+
+      initialRoute: '/',
+      onGenerateRoute: prefix0.onGenerateRoute,
     );
   }
 }

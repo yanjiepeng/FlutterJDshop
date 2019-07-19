@@ -32,6 +32,7 @@ class _TabsState extends State<Tabs> {
         
         currentIndex:this._currentIndex  ,
         type: BottomNavigationBarType.fixed,
+        fixedColor: Colors.red,
         onTap: (index){
             setState(() {
              this._currentIndex = index; 
