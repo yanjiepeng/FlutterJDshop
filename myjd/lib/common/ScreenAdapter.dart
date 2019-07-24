@@ -17,5 +17,6 @@ class ScreenAdaper{
   static getScreenWidth(){
     return ScreenUtil.screenWidthDp;
   }
-  // ScreenUtil.screenHeight 
+  // ScreenUtil.screenHeight
+  //简单封装获取宽高 
 }
