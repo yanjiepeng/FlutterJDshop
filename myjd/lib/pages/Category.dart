@@ -10,7 +10,7 @@ class CategoryPage extends StatefulWidget {
   _CategoryeState createState() => _CategoryeState();
 }
 
-class _CategoryeState extends State<CategoryPage> {
+class _CategoryeState extends State<CategoryPage> with AutomaticKeepAliveClientMixin {
   int _selectIndex = 0;
 
   List<CategoryItemModel> _leftCategory = [];
@@ -18,7 +18,6 @@ class _CategoryeState extends State<CategoryPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _getLeftCategory();
   }
@@ -173,4 +172,8 @@ class _CategoryeState extends State<CategoryPage> {
       );
     }
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

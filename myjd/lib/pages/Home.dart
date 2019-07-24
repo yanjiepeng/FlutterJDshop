@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
   //加载轮播图
   List foucusData = [];
   List<ProductItemModel> hotProduct = [];
@@ -177,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                     //防止服务器返回的图片大小不一致导致高度不一致问题
                     aspectRatio: 1 / 1,
                     child: Image.network(
-                      "${sPic}",
+                      "$sPic",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -239,4 +239,7 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

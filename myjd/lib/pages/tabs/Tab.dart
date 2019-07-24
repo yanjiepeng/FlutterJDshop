@@ -12,7 +12,8 @@ class Tabs extends StatefulWidget {
 class _TabsState extends State<Tabs> {
 
   int _currentIndex = 0;
-  List _pageList = [
+  PageController _pageController;
+  List<Widget> _pageList = [
 
       HomePage(),
       CategoryPage(),
@@ -22,12 +23,22 @@ class _TabsState extends State<Tabs> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    this._pageController = PageController(initialPage: this._currentIndex);
+    }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Title'),
       ),
-      body: this._pageList[this._currentIndex],
+      body:PageView(
+        controller: this._pageController,
+        children: this._pageList,
+
+      ),
       bottomNavigationBar: BottomNavigationBar(
         
         currentIndex:this._currentIndex  ,
@@ -36,6 +47,7 @@ class _TabsState extends State<Tabs> {
         onTap: (index){
             setState(() {
              this._currentIndex = index; 
+             this._pageController.jumpToPage(this._currentIndex);
             });
         },
         
