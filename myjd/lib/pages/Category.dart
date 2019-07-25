@@ -10,7 +10,14 @@ class CategoryPage extends StatefulWidget {
   _CategoryeState createState() => _CategoryeState();
 }
 
-class _CategoryeState extends State<CategoryPage> with AutomaticKeepAliveClientMixin {
+class _CategoryeState extends State<CategoryPage>
+    with AutomaticKeepAliveClientMixin {
+
+      
+  @override
+  bool get wantKeepAlive => true;
+
+
   int _selectIndex = 0;
 
   List<CategoryItemModel> _leftCategory = [];
@@ -78,25 +85,29 @@ class _CategoryeState extends State<CategoryPage> with AutomaticKeepAliveClientM
           child: GridView.builder(
             itemCount: this._rightCategory.length,
             itemBuilder: (BuildContext context, int index) {
+              String pic = this._rightCategory[index].pic;
+              pic = Config.domain + pic.replaceAll('\\', '/');
+              return InkWell(
 
-              String pic =  this._rightCategory[index].pic;
-              pic = Config.domain+pic.replaceAll('\\', '/');
-
-              return Container(
-                child: Column(
-                  children: <Widget>[
-                    AspectRatio(
-                      aspectRatio: 1 / 1,
-                      child: Image.network(
-                        pic,
-                        fit: BoxFit.cover,
+                onTap: (){
+                  Navigator.pushNamed(context, '/productlist',arguments: {'cid':this._rightCategory[index].sId});
+                },
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      AspectRatio(
+                        aspectRatio: 1 / 1,
+                        child: Image.network(
+                          pic,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: ScreenAdaper.height(28),
-                      child: Text('${this._rightCategory[index].title}'),
-                    )
-                  ],
+                      Container(
+                        height: ScreenAdaper.height(28),
+                        child: Text('${this._rightCategory[index].title}'),
+                      )
+                    ],
+                  ),
                 ),
               );
             },
@@ -113,14 +124,12 @@ class _CategoryeState extends State<CategoryPage> with AutomaticKeepAliveClientM
       return Expanded(
         flex: 1,
         child: Container(
-
-          padding: EdgeInsets.all(10),
-          height: double.infinity,
-          color: Color.fromRGBO(240, 246, 246, 0.9),
-          child: Center(
-            child: Text('loading'),
-          )
-        ),
+            padding: EdgeInsets.all(10),
+            height: double.infinity,
+            color: Color.fromRGBO(240, 246, 246, 0.9),
+            child: Center(
+              child: Text('loading'),
+            )),
       );
     }
   }
@@ -139,9 +148,7 @@ class _CategoryeState extends State<CategoryPage> with AutomaticKeepAliveClientM
                   onTap: () {
                     setState(() {
                       this._selectIndex = index;
-
                       this._getRightCategory(this._leftCategory[index].sId);
-
                     });
                   },
                   child: Container(
@@ -173,7 +180,4 @@ class _CategoryeState extends State<CategoryPage> with AutomaticKeepAliveClientM
     }
   }
 
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
 }

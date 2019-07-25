@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:myjd/pages/Search.dart';
 import '../pages/tabs/Tab.dart';
+import '../pages/ProductList.dart';
 
 //配置路由
 final routes = {
   '/': (context) => Tabs(),
-  '/search':(context) => SearchPage(),
+  '/search': (context) => SearchPage(),
+  '/productlist': (context ,{arguments}) => ProductListPage(arguments),
+
   // '/search': (context) => SearchPage(),
 };
 

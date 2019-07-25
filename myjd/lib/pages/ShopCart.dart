@@ -6,11 +6,18 @@ class ShopCartPage extends StatefulWidget {
 }
 
 class _ShopCarteState extends State<ShopCartPage> with AutomaticKeepAliveClientMixin{
-  @override
-  Widget build(BuildContext context) {
-    return Text('购物车');
-  }
 
   @override
+  void initState() {
+    super.initState();
+  }
+  
+  @override
+  Widget build(BuildContext context) => Text('购物车');
+
+  @override
+  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
+  
+
 }
