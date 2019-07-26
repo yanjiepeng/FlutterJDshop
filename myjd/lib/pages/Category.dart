@@ -7,16 +7,14 @@ import '../model/CategoryModel.dart';
 
 class CategoryPage extends StatefulWidget {
   @override
-  _CategoryeState createState() => _CategoryeState();
+  _CategoryState createState() => _CategoryState();
 }
 
-class _CategoryeState extends State<CategoryPage>
+class _CategoryState extends State<CategoryPage>
     with AutomaticKeepAliveClientMixin {
 
-      
   @override
   bool get wantKeepAlive => true;
-
 
   int _selectIndex = 0;
 
