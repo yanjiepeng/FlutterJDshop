@@ -92,7 +92,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                     margin: EdgeInsets.only(right: 10),
                                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
 
-                                    //注意 如果Container里面加上decoration属性，这个时候color属性必须得放在BoxDecoration
+                                    //注意 如果Container里面加上decoration属性，这个时候color属性必须得放在BoxDecoration 123
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Color.fromRGBO(230, 230, 230, 0.9),
