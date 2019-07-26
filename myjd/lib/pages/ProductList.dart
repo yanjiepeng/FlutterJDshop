@@ -16,6 +16,9 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
+  //list控制器
+  ScrollController scrollController = ScrollController();
+
   //分页
   int _page = 1;
 
@@ -23,7 +26,7 @@ class _ProductListPageState extends State<ProductListPage> {
   int _pageSize = 8;
 
   //数据
-  List _productList = [];
+  List<ProductItemModel> _productList = [];
 
   //排序 价格升序 sort=price_1 价格降序 sort=price_-1  销量升序 sort=salecount_1 销量降序 sort=salecount_-1
   String _sort = '';
@@ -52,8 +55,12 @@ class _ProductListPageState extends State<ProductListPage> {
       body: Padding(
         padding: EdgeInsets.all(10),
         child: ListView.builder(
-          itemCount: 10,
+          controller: this.scrollController,
+          itemCount: this._productList.length,
           itemBuilder: (BuildContext context, int index) {
+            String picUrl = Config.domain +
+                (this._productList[index].pic).replaceAll('\\', '/');
+
             return Column(
               children: <Widget>[
                 Row(
@@ -62,7 +69,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       width: ScreenAdaper.width(180),
                       height: ScreenAdaper.height(180),
                       child: Image.network(
-                        'https://imgs.aixifan.com/style/image/201907/ccoYfmsvGxCTI9FVUTye8W6N6DLhQefn.jpg',
+                        picUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -76,10 +83,8 @@ class _ProductListPageState extends State<ProductListPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                  "戴尔(DELL)灵越3670 英特尔酷睿i5 高性能 台式电脑整机(九代i5-9400 8G 256G)",
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis),
+                              Text(this._productList[index].title,
+                                  maxLines: 2, overflow: TextOverflow.ellipsis),
                               Row(
                                 children: <Widget>[
                                   Container(
@@ -93,7 +98,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                       color: Color.fromRGBO(230, 230, 230, 0.9),
                                     ),
 
-                                    child: Text("4g"),
+                                    child: Text('4g'),
                                   ),
                                   Container(
                                     height: ScreenAdaper.height(36),
@@ -108,7 +113,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                 ],
                               ),
                               Text(
-                                "¥990",
+                                this._productList[index].price.toString(),
                                 style:
                                     TextStyle(color: Colors.red, fontSize: 16),
                               )
@@ -136,7 +141,7 @@ class _ProductListPageState extends State<ProductListPage> {
     var result = await Dio().get(api);
 
     var productList = new ProductModel.fromJson(result.data);
-    print( productList.result.length);
+    print(productList.result.length);
     if (productList.result.length < this._pageSize) {
       setState(() {
         this._productList = productList.result;
