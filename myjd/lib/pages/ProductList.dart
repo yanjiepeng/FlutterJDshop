@@ -41,6 +41,23 @@ class _ProductListPageState extends State<ProductListPage> {
   //解决重复请求的问题
   bool flag = true;
 
+  /*二级导航数据*/
+  List _subHeaderList = [
+    {
+      "id": 1,
+      "title": "综合",
+      "fileds": "all",
+      "sort":
+          -1, //排序     升序：price_1     {price:1}        降序：price_-1   {price:-1}
+    },
+    {"id": 2, "title": "销量", "fileds": 'salecount', "sort": -1},
+    {"id": 3, "title": "价格", "fileds": 'price', "sort": -1},
+    {"id": 4, "title": "筛选"}
+  ];
+
+  //二級菜單選中
+  int _selectSubtitle = 1;
+
   @override
   void initState() {
     super.initState();
@@ -92,6 +109,46 @@ class _ProductListPageState extends State<ProductListPage> {
         ));
   }
 
+  _subTitleChanged(_id) {
+    if (_id == 4) {
+      this._scoffoldKey.currentState.openEndDrawer();
+      setState(() {
+        this._selectSubtitle = _id;
+      });
+    }else{
+      setState(() {
+        this._selectSubtitle = _id;
+        this._sort =
+        "${this._subHeaderList[_id - 1]["fileds"]}_${this._subHeaderList[_id - 1]["sort"]}";
+        //重置數據
+        this._page = 1;
+        this._productList = [];
+        //改变sort排序
+        this._subHeaderList[_id - 1]['sort'] =
+            this._subHeaderList[_id - 1]['sort'] * -1;
+        //listView回到顶部
+        this.scrollController.jumpTo(0);
+        //重置_hasMore
+        this._hasMore = true;
+        //重新请求
+        this._getProductListData();
+      });
+
+    }
+
+  }
+
+  //显示header Icon
+  Widget _showIcon(id){
+    if(id==2|| id ==3){
+      if(this._subHeaderList[id-1]["sort"]==1){
+        return Icon(Icons.arrow_drop_down);
+      }
+      return Icon(Icons.arrow_drop_up);
+    }
+    return Text("");
+  }
+
   //二级导航菜单
   Widget _subTitleWidget() {
     return Positioned(
@@ -104,58 +161,32 @@ class _ProductListPageState extends State<ProductListPage> {
                   bottom: BorderSide(
                       width: 1, color: Color.fromRGBO(233, 233, 233, 0.9)))),
           child: Row(
-            children: <Widget>[
-              Expanded(
+            children: this._subHeaderList.map((value) {
+              return Expanded(
                 child: InkWell(
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(
                         0, ScreenAdaper.height(16), 0, ScreenAdaper.height(16)),
-                    child: Text(
-                      '综合',
-                      textAlign: TextAlign.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          value['title'],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: (this._selectSubtitle == value['id']
+                                  ? Colors.red
+                                  : Colors.black54)),
+                        ),
+                        _showIcon(value['id'])
+                      ],
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () => _subTitleChanged(value['id']),
                 ),
                 flex: 1,
-              ),
-              Expanded(
-                child: InkWell(
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        0, ScreenAdaper.height(16), 0, ScreenAdaper.height(16)),
-                    child: Text('销量', textAlign: TextAlign.center),
-                  ),
-                  onTap: () {},
-                ),
-                flex: 1,
-              ),
-              Expanded(
-                child: InkWell(
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        0, ScreenAdaper.height(16), 0, ScreenAdaper.height(16)),
-                    child: Text('价格', textAlign: TextAlign.center),
-                  ),
-                  onTap: () {},
-                ),
-                flex: 1,
-              ),
-              Expanded(
-                child: InkWell(
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        0, ScreenAdaper.height(16), 0, ScreenAdaper.height(16)),
-                    child: Text('筛选', textAlign: TextAlign.center),
-                  ),
-                  onTap: () {
-                    //打开右边侧边栏
-                    this._scoffoldKey.currentState.openEndDrawer();
-                  },
-                ),
-                flex: 1,
-              )
-            ],
+              );
+            }).toList(),
           )),
       width: ScreenAdaper.width(750),
       height: ScreenAdaper.height(80),
@@ -164,14 +195,13 @@ class _ProductListPageState extends State<ProductListPage> {
 
   //判断是否有更多数据加载
   Widget _showMore(int index) {
-    if(this._hasMore) {
+    if (this._hasMore) {
       return (index == this._productList.length - 1)
           ? LoadingWidget()
           : Text('');
-    }else{
-      return  (index == this._productList.length - 1)?Text('没有更多啦'): Text('');
+    } else {
+      return (index == this._productList.length - 1) ? Text('没有更多啦') : Text('');
     }
-
   }
 
   //商品详情列表
