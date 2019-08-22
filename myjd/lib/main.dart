@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myjd/routes/route.dart' as prefix0;
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -7,14 +8,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      // home: Tabs(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/search',
+      onGenerateRoute:prefix0.onGenerateRoute,
       theme: ThemeData(
-       
-        primarySwatch: Colors.blue,
+        // primaryColor: Colors.yellow
+          primaryColor: Colors.white
       ),
-
-      initialRoute: '/',
-      onGenerateRoute: prefix0.onGenerateRoute,
     );
   }
 }

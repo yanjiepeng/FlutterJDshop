@@ -51,18 +51,18 @@ class _CategoryState extends State<CategoryPage>
 
   @override
   Widget build(BuildContext context) {
-    ScreenAdaper.init(context);
+    ScreenAdapter.init(context);
 
-    var leftWidth = ScreenAdaper.getScreenWidth() / 4;
+    var leftWidth = ScreenAdapter.getScreenWidth() / 4;
     //右侧gridview每一项item的宽度
     var rightItemWidth =
-        (ScreenAdaper.getScreenWidth() - leftWidth - 20 - 20) / 3;
+        (ScreenAdapter.getScreenWidth() - leftWidth - 20 - 20) / 3;
     //右侧gridview每一项item的高度
 
-    rightItemWidth = ScreenAdaper.width(rightItemWidth);
+    rightItemWidth = ScreenAdapter.width(rightItemWidth);
     //转化为屏幕适配的尺寸
     //高度等于宽度+字体
-    var rightItemHeight = rightItemWidth + ScreenAdaper.height(28);
+    var rightItemHeight = rightItemWidth + ScreenAdapter.height(28);
 
     return Row(
       children: <Widget>[
@@ -101,7 +101,7 @@ class _CategoryState extends State<CategoryPage>
                         ),
                       ),
                       Container(
-                        height: ScreenAdaper.height(28),
+                        height: ScreenAdapter.height(28),
                         child: Text('${this._rightCategory[index].title}'),
                       )
                     ],
@@ -154,8 +154,8 @@ class _CategoryState extends State<CategoryPage>
                       '${this._leftCategory[index].title}',
                       textAlign: TextAlign.center,
                     ),
-                    height: ScreenAdaper.height(84),
-                    padding: EdgeInsets.only(top: ScreenAdaper.height(34)),
+                    height: ScreenAdapter.height(84),
+                    padding: EdgeInsets.only(top: ScreenAdapter.height(34)),
                     width: double.infinity,
                     color: this._selectIndex == index
                         ? Color.fromRGBO(240, 246, 246, 0.9)

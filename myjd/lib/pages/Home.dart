@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
   //推荐商品
   //推荐商品
   Widget _recProductListWidget() {
-    var itemWidth = (ScreenAdaper.getScreenWidth() - 30) / 2;
+    var itemWidth = (ScreenAdapter.getScreenWidth() - 30) / 2;
     return Container(
       padding: EdgeInsets.all(10),
       child: Wrap(
@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenAdaper.height(20)),
+                  padding: EdgeInsets.only(top: ScreenAdapter.height(20)),
                   child: Text(
                     "${value.title}",
                     maxLines: 2,
@@ -192,7 +192,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenAdaper.height(20)),
+                  padding: EdgeInsets.only(top: ScreenAdapter.height(20)),
                   child: Stack(
                     children: <Widget>[
                       Align(

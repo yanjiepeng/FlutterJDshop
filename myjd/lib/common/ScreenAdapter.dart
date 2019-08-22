@@ -1,6 +1,6 @@
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-class ScreenAdaper{
+class ScreenAdapter{
 
   static init(context){
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
@@ -16,6 +16,18 @@ class ScreenAdaper{
   }
   static getScreenWidth(){
     return ScreenUtil.screenWidthDp;
+  }
+
+  static getScreenPxWidth(){
+    return ScreenUtil.screenWidth;
+  }
+
+  static getScreenPxHeight(){
+    return ScreenUtil.screenHeight;
+  }
+
+  static size(double value){
+    return ScreenUtil.getInstance().setSp(value);
   }
   // ScreenUtil.screenHeight
   //简单封装获取宽高 

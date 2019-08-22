@@ -82,7 +82,7 @@ class _ProductListPageState extends State<ProductListPage> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenAdaper.init(context);
+    ScreenAdapter.init(context);
 
     return Scaffold(
         key: this._scoffoldKey,
@@ -100,7 +100,7 @@ class _ProductListPageState extends State<ProductListPage> {
         body: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(top: ScreenAdaper.height(80)),
+              margin: EdgeInsets.only(top: ScreenAdapter.height(80)),
               padding: EdgeInsets.all(10),
               child: _productListWidget(),
             ),
@@ -114,7 +114,7 @@ class _ProductListPageState extends State<ProductListPage> {
       this._scoffoldKey.currentState.openEndDrawer();
       setState(() {
         this._selectSubtitle = _id;
-      });
+    });
     }else{
       setState(() {
         this._selectSubtitle = _id;
@@ -154,8 +154,8 @@ class _ProductListPageState extends State<ProductListPage> {
     return Positioned(
       top: 0,
       child: Container(
-          width: ScreenAdaper.width(750),
-          height: ScreenAdaper.height(80),
+          width: ScreenAdapter.width(750),
+          height: ScreenAdapter.height(80),
           decoration: BoxDecoration(
               border: Border(
                   bottom: BorderSide(
@@ -166,7 +166,7 @@ class _ProductListPageState extends State<ProductListPage> {
                 child: InkWell(
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(
-                        0, ScreenAdaper.height(16), 0, ScreenAdaper.height(16)),
+                        0, ScreenAdapter.height(16), 0, ScreenAdapter.height(16)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -188,8 +188,8 @@ class _ProductListPageState extends State<ProductListPage> {
               );
             }).toList(),
           )),
-      width: ScreenAdaper.width(750),
-      height: ScreenAdaper.height(80),
+      width: ScreenAdapter.width(750),
+      height: ScreenAdapter.height(80),
     );
   }
 
@@ -221,8 +221,8 @@ class _ProductListPageState extends State<ProductListPage> {
                   Row(
                     children: <Widget>[
                       Container(
-                        width: ScreenAdaper.width(180),
-                        height: ScreenAdaper.height(180),
+                        width: ScreenAdapter.width(180),
+                        height: ScreenAdapter.height(180),
                         child: Image.network(
                           picUrl,
                           fit: BoxFit.cover,
@@ -231,8 +231,8 @@ class _ProductListPageState extends State<ProductListPage> {
                       Expanded(
                           flex: 1,
                           child: Container(
-                            width: ScreenAdaper.width(180),
-                            height: ScreenAdaper.height(180),
+                            width: ScreenAdapter.width(180),
+                            height: ScreenAdapter.height(180),
                             margin: EdgeInsets.only(left: 10),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -244,7 +244,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      height: ScreenAdaper.height(36),
+                                      height: ScreenAdapter.height(36),
                                       margin: EdgeInsets.only(right: 10),
                                       padding:
                                           EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -259,7 +259,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                       child: Text('4g'),
                                     ),
                                     Container(
-                                      height: ScreenAdaper.height(36),
+                                      height: ScreenAdapter.height(36),
                                       margin: EdgeInsets.only(right: 10),
                                       padding:
                                           EdgeInsets.fromLTRB(10, 0, 10, 0),
