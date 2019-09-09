@@ -41,6 +41,9 @@ class _ProductListPageState extends State<ProductListPage> {
   //解决重复请求的问题
   bool flag = true;
 
+  //是否有搜索的数据
+  bool _hasData = true;
+
   /*二级导航数据*/
   List _subHeaderList = [
     {
@@ -58,9 +61,23 @@ class _ProductListPageState extends State<ProductListPage> {
   //二級菜單選中
   int _selectSubtitle = 1;
 
+  //搜索框的值
+  var _initKeywordController = new TextEditingController();
+
+  //keyword
+  var _cid;
+
+  var _keyword;
+
   @override
   void initState() {
     super.initState();
+
+    this._cid = widget.arguments['cid'];
+    this._keyword = widget.arguments['keyword'];
+    //给search框赋值为keyword
+
+    this._initKeywordController.text = this._keyword;
 
     _getProductListData();
 
@@ -87,26 +104,55 @@ class _ProductListPageState extends State<ProductListPage> {
     return Scaffold(
         key: this._scoffoldKey,
         appBar: AppBar(
-          title: Text('商品列表'),
+          title: Container(
+            child: TextField(
+              controller: this._initKeywordController,
+              autofocus: false,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide.none)),
+              onChanged: (value) {
+                setState(() {
+                  this._keyword = value;
+                });
+              },
+            ),
+            height: ScreenAdapter.height(68),
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(233, 233, 233, 0.8),
+                borderRadius: BorderRadius.circular(30)),
+          ),
           actions: <Widget>[
-            Text(''), //顶掉右侧抽屉自动生成的菜单
+            InkWell(
+              child: Container(
+                height: ScreenAdapter.height(68),
+                width: ScreenAdapter.width(80),
+                child: Row(
+                  children: <Widget>[Text('搜索')],
+                ),
+              ),
+              onTap: () {
+                //点击搜索
+                _subTitleChanged(1);
+              },
+            )
           ],
         ),
         endDrawer: Drawer(
           child: Container(
-            child: Text('实现筛选功能'),
+            child: Center(
+              child: Text('筛选功能'),
+            ),
           ),
         ),
-        body: Stack(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(top: ScreenAdapter.height(80)),
-              padding: EdgeInsets.all(10),
-              child: _productListWidget(),
-            ),
-            _subTitleWidget()
-          ],
-        ));
+        body: _hasData
+            ? Stack(
+                children: <Widget>[_productListWidget(), _subTitleWidget()],
+              )
+            : Center(
+                child: Text('没有您要浏览的数据'),
+              ));
   }
 
   _subTitleChanged(_id) {
@@ -114,12 +160,12 @@ class _ProductListPageState extends State<ProductListPage> {
       this._scoffoldKey.currentState.openEndDrawer();
       setState(() {
         this._selectSubtitle = _id;
-    });
-    }else{
+      });
+    } else {
       setState(() {
         this._selectSubtitle = _id;
         this._sort =
-        "${this._subHeaderList[_id - 1]["fileds"]}_${this._subHeaderList[_id - 1]["sort"]}";
+            "${this._subHeaderList[_id - 1]["fileds"]}_${this._subHeaderList[_id - 1]["sort"]}";
         //重置數據
         this._page = 1;
         this._productList = [];
@@ -133,15 +179,13 @@ class _ProductListPageState extends State<ProductListPage> {
         //重新请求
         this._getProductListData();
       });
-
     }
-
   }
 
   //显示header Icon
-  Widget _showIcon(id){
-    if(id==2|| id ==3){
-      if(this._subHeaderList[id-1]["sort"]==1){
+  Widget _showIcon(id) {
+    if (id == 2 || id == 3) {
+      if (this._subHeaderList[id - 1]["sort"] == 1) {
         return Icon(Icons.arrow_drop_down);
       }
       return Icon(Icons.arrow_drop_up);
@@ -165,8 +209,8 @@ class _ProductListPageState extends State<ProductListPage> {
               return Expanded(
                 child: InkWell(
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        0, ScreenAdapter.height(16), 0, ScreenAdapter.height(16)),
+                    padding: EdgeInsets.fromLTRB(0, ScreenAdapter.height(16), 0,
+                        ScreenAdapter.height(16)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -208,6 +252,8 @@ class _ProductListPageState extends State<ProductListPage> {
   Widget _productListWidget() {
     if (this._productList.length > 0) {
       return Container(
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.only(top: ScreenAdapter.height(80)),
         child: ListView.builder(
           controller: this.scrollController,
           itemCount: this._productList.length,
@@ -302,15 +348,31 @@ class _ProductListPageState extends State<ProductListPage> {
       this.flag = false;
     });
 
-    var api =
-        '${Config.domain}api/plist?cid=${widget.arguments['cid']}&page=${this._page}&sort=${this._sort}&pageSize=${this._pageSize}';
+    var api;
+    if (this._keyword == null) {
+      api =
+          '${Config.domain}api/plist?cid=${widget.arguments['cid']}&page=${this._page}&sort=${this._sort}&pageSize=${this._pageSize}';
+    } else {
+      api =
+          '${Config.domain}api/plist?search=${this._keyword}&page=${this._page}&sort=${this._sort}&pageSize=${this._pageSize}';
+    }
 
     print(api);
 
     var result = await Dio().get(api);
 
     var productList = new ProductModel.fromJson(result.data);
-    print(productList.result.length);
+
+    if (productList.result.length == 0 && this._page == 1) {
+      setState(() {
+        this._hasData = false;
+      });
+    } else {
+      setState(() {
+        this._hasData = true;
+      });
+    }
+    //判断最后一页有没有数据
     if (productList.result.length < this._pageSize) {
       setState(() {
         this._productList.addAll(productList.result);

@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // home: Tabs(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/search',
+      initialRoute: '/',
       onGenerateRoute:prefix0.onGenerateRoute,
       theme: ThemeData(
         // primaryColor: Colors.yellow

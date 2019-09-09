@@ -7,6 +7,10 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+
+
+  var _keyword;
+
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
@@ -21,6 +25,9 @@ class _SearchPageState extends State<SearchPage> {
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide.none),
               ),
+              onChanged: (value) {
+                this._keyword = value;
+              },
             ),
             height: ScreenAdapter.height(68),
             decoration: BoxDecoration(
@@ -36,6 +43,11 @@ class _SearchPageState extends State<SearchPage> {
                   children: <Widget>[Text('搜索')],
                 ),
               ),
+              onTap: (){
+                Navigator.pushReplacementNamed(context , '/productlist', arguments: {
+                  'keyword':this._keyword
+                });
+              },
             )
           ],
         ),
