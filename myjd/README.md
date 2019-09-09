@@ -1,6 +1,7 @@
 # myjd
 
-A new Flutter project.
+flutter商场demo
+纯新手开发demo
 
 ## Getting Started
 
