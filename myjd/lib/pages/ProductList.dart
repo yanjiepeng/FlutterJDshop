@@ -248,6 +248,8 @@ class _ProductListPageState extends State<ProductListPage> {
     }
   }
 
+
+
   //商品详情列表
   Widget _productListWidget() {
     if (this._productList.length > 0) {
