@@ -139,9 +139,10 @@ class _SearchPageState extends State<SearchPage> {
               onChanged: (value) {
                 this._keyword = value;
               },
-              // 保持光标在最后
               controller: TextEditingController.fromValue(TextEditingValue(
-                  text: '${this._keyword == null ? "" : this._keyword}',
+                  text: '${this._keyword == null ? "" : this._keyword}',  //判断keyword是否为空
+                  // 保持光标在最后
+
                   selection: TextSelection.fromPosition(TextPosition(
                       affinity: TextAffinity.downstream,
                       offset: '${this._keyword}'.length)))),

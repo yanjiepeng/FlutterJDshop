@@ -86,7 +86,6 @@ class _CategoryState extends State<CategoryPage>
               String pic = this._rightCategory[index].pic;
               pic = Config.domain + pic.replaceAll('\\', '/');
               return InkWell(
-
                 onTap: (){
                   Navigator.pushNamed(context, '/productlist',arguments: {'cid':this._rightCategory[index].sId});
                 },
@@ -102,7 +101,7 @@ class _CategoryState extends State<CategoryPage>
                       ),
                       Container(
                         height: ScreenAdapter.height(28),
-                        child: Text('${this._rightCategory[index].title}'),
+                        child: Text('${this._rightCategory[index].title}' ,style: TextStyle(fontSize: 14),),
                       )
                     ],
                   ),
