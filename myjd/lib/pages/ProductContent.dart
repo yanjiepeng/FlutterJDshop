@@ -4,6 +4,7 @@ import 'package:myjd/common/ScreenAdapter.dart';
 import 'ProductContent/ProductContentFirst.dart';
 import 'ProductContent/ProductContentSecond.dart';
 import 'ProductContent/ProductContentThird.dart';
+import 'package:myjd/widet/JdButton.dart';
 
 class ProductContent extends StatefulWidget {
   final Map arguments;
@@ -88,8 +89,40 @@ class _ProductContentState extends State<ProductContent> {
                 height: ScreenAdapter.width(80),
                 bottom: 0,
                 child: Container(
-                  color: Colors.red,
-                  child: Text("底部"),
+                  decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(color: Colors.black26, width: 1)),
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(top: ScreenAdapter.height(10)),
+                        width: 100,
+                        height: ScreenAdapter.height(88),
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.shopping_cart),
+                            Text("购物车")
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: JdButton(
+                            color: Color.fromRGBO(253, 1, 0, 0.9),
+                            text: '加入购物车',
+                            cb: () => print('加入购物车')),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: JdButton(
+                            color: Color.fromRGBO(255, 165, 0, 0.9),
+                            text: '立即购买',
+                            cb: () => print('立即购买')),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
