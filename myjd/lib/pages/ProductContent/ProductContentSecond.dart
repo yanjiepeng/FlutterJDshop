@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ProductContentSecond extends StatefulWidget {
-  ProductContentSecond({Key key}) : super(key: key);
+
+
+  final List _productContentList;
+
+  ProductContentSecond(this._productContentList,{Key key}) : super(key: key);
 
   _ProductContentSecondState createState() => _ProductContentSecondState();
 }

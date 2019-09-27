@@ -338,7 +338,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   ),
                 ),
                 //listview点击事件
-                onTap: () => Navigator.pushNamed(context, '/productContent'));
+                onTap: () => Navigator.pushNamed(context, '/productContent' , arguments: {'id':this._productList[index].sId}));
           },
         ),
       );
