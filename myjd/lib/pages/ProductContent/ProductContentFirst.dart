@@ -29,9 +29,6 @@ class _ProductContentFirstState extends State<ProductContentFirst> {
 
   //封装组建渲染商品选择属性
 
-
-
-
   _attrBottomSheet() {
     showModalBottomSheet(
         context: context,
