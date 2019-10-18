@@ -15,7 +15,8 @@ class ProductContentFirst extends StatefulWidget {
   _ProductContentFirstState createState() => _ProductContentFirstState();
 }
 
-class _ProductContentFirstState extends State<ProductContentFirst> {
+class _ProductContentFirstState extends State<ProductContentFirst>
+    with AutomaticKeepAliveClientMixin {
   ProductContentItem _productContent;
 
   List<Attr> _attr = [];
@@ -25,6 +26,34 @@ class _ProductContentFirstState extends State<ProductContentFirst> {
     super.initState();
     this._productContent = widget._productContentList[0];
     this._attr = this._productContent.attr;
+
+    /**
+     * 组装类似 数据
+     * [{"title":"细带", "checked": true},{"title"："白色",checked:"true"}
+     * 类似数据
+     */
+
+    _initAttr();
+  }
+
+  /**
+   * 改造数据格式
+   */
+  void _initAttr() {
+    var attr = this._attr;
+
+    print(_attr);
+
+    for (var i = 0; i < attr.length; i++) {
+      print(attr[i].list);
+
+      for (var j = 0; j < attr[i].list.length; j++) {
+        //在Attr里创建了checklist存储选中情况
+        attr[i].checkList.add({"title": attr[i].list[j], "checked": false});
+      }
+    }
+
+    print(attr[0].checkList);
   }
 
   //封装组建渲染商品选择属性
@@ -51,7 +80,6 @@ class _ProductContentFirstState extends State<ProductContentFirst> {
                             return Wrap(
                               children: <Widget>[
                                 Container(
-
                                   child: Padding(
                                     padding: EdgeInsets.only(
                                         top: ScreenAdapter.height(46)),
@@ -66,12 +94,15 @@ class _ProductContentFirstState extends State<ProductContentFirst> {
                                 Container(
                                   width: ScreenAdapter.width(610),
                                   child: Wrap(
-                                    children: attrItem.list.map((value) {
+                                    children: attrItem.checkList.map((value) {
                                       return Container(
                                         margin: EdgeInsets.all(10),
                                         child: Chip(
-                                          label: Text('$value'),
+                                          label: Text('${value['title']}'),
                                           padding: EdgeInsets.all(10),
+                                          backgroundColor: value['checked']
+                                              ? Colors.red
+                                              : Colors.grey,
                                         ),
                                       );
                                     }).toList(),
@@ -223,4 +254,8 @@ class _ProductContentFirstState extends State<ProductContentFirst> {
       ),
     ));
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
