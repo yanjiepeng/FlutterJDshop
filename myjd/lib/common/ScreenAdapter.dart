@@ -5,6 +5,7 @@ class ScreenAdapter{
   static init(context){
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
   }
+
   static height(double value){
      return ScreenUtil.getInstance().setHeight(value);
   }
