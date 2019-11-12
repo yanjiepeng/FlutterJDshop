@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/pages/Category.dart';
@@ -31,46 +33,10 @@ class _TabsState extends State<Tabs> {
     ScreenAdapter.init(context);
 
     return Scaffold(
-      appBar: this._currentIndex != 3
-          ? AppBar(
-              leading: IconButton(
-                  icon: Icon(
-                    Icons.center_focus_weak,
-                    size: 28,
-                    color: Colors.black87,
-                  ),
-                  onPressed: null),
-              title: InkWell(
-                child: Container(
-                  height: ScreenAdapter.height(68),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color.fromRGBO(233, 233, 233, 0.9)),
-                  padding: EdgeInsets.only(left: 10),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.search),
-                      Text(
-                        '笔记本',
-                        style: TextStyle(fontSize: ScreenAdapter.size(18)),
-                      )
-                    ],
-                  ),
-                ),
-                onTap: (){
-                  Navigator.pushNamed(context, '/search');
-                },
-              ),
-              actions: <Widget>[
-                IconButton(icon: Icon(Icons.message , size: 28, color: Colors.black87,), onPressed: null)
-              ],
-            )
-          : AppBar(
-        
-        title: Text('企业中心'),
-        
-      ),
+      appBar: getAppBar(this._currentIndex),
       body: PageView(
+        //TabBarView 默认支持手势滑动，若要禁止设置 NeverScrollableScrollPhysics
+        physics: NeverScrollableScrollPhysics(),
         controller: this._pageController,
         children: this._pageList,
       ),
@@ -94,5 +60,80 @@ class _TabsState extends State<Tabs> {
         ],
       ),
     );
+  }
+
+  AppBar getAppBar(var index) {
+    if (index == 0 || index == 1) {
+      return AppBar(
+        leading: IconButton(
+            icon: Icon(
+              Icons.center_focus_weak,
+              size: 28,
+              color: Colors.black87,
+            ),
+            onPressed: null),
+        title: InkWell(
+          child: Container(
+            height: ScreenAdapter.height(68),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color.fromRGBO(233, 233, 233, 0.9)),
+            padding: EdgeInsets.only(left: 10),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.search),
+                Text(
+                  '笔记本',
+                  style: TextStyle(fontSize: ScreenAdapter.size(18)),
+                )
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.pushNamed(context, '/search');
+          },
+        ),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(
+                Icons.message,
+                size: 28,
+                color: Colors.black87,
+              ),
+              onPressed: null)
+        ],
+      );
+    } else if (index == 2) {
+      return AppBar(
+        backgroundColor: Colors.red,
+        leading: Icon(null),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('购物车',style: TextStyle(color: Colors.white),),
+            Icon(Icons.add_location ,color: Colors.white,)
+          ],
+        ),
+        actions: <Widget>[
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            Text(
+              '编辑',
+              style: TextStyle(color: Colors.white, fontSize: 19),
+            ),
+          ]),
+          IconButton(
+              icon: Icon(
+                Icons.more_horiz,
+                size: 28,
+                color: Colors.white,
+              ),
+              onPressed: null)
+        ],
+      );
+    } else {
+      return AppBar(
+        title: Text('企业中心'),
+      );
+    }
   }
 }
