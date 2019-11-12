@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'cart/cartpages/FirstCart.dart';
+
 class ShopCartPage extends StatefulWidget {
   @override
   _ShopCarteState createState() => _ShopCarteState();
+
 }
 
 class _ShopCarteState extends State<ShopCartPage>
@@ -52,7 +55,7 @@ class _ShopCarteState extends State<ShopCartPage>
           //TabBarView 默认支持手势滑动，若要禁止设置 NeverScrollableScrollPhysics
           physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
-            firstCart(),
+            FirstCartPage(),
             Text('2'),
             Text('3'),
             Text('4'),
@@ -63,14 +66,5 @@ class _ShopCarteState extends State<ShopCartPage>
   @override
   bool get wantKeepAlive => true;
 
-  Widget firstCart() {
-    return ListView(
-      children: <Widget>[
-        ListTile(
-          title: Text("商品1"),
-          leading: Icon(Icons.ac_unit),
-        )
-      ],
-    );
-  }
+
 }
