@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:myjd/provider/Cart.dart';
+import 'package:provider/provider.dart';
 
 import 'cart/cartpages/FirstCart.dart';
 
 class ShopCartPage extends StatefulWidget {
   @override
   _ShopCarteState createState() => _ShopCarteState();
-
 }
 
 class _ShopCarteState extends State<ShopCartPage>
     with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
-  final List<Tab> myTabs = <Tab>[
-    Tab(text: '全部()'),
+  List<Tab> myTabs = <Tab>[
+    Tab(text: '全部'),
     Tab(text: '降价()'),
     Tab(text: '常买()'),
     Tab(text: '分类()'),
@@ -34,6 +35,9 @@ class _ShopCarteState extends State<ShopCartPage>
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<Cart>(context);
+    myTabs[0] = Tab(text: "全部(${provider.cartNum})");
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -64,7 +68,7 @@ class _ShopCarteState extends State<ShopCartPage>
   }
 
   @override
-  bool get wantKeepAlive => true;
-
-
+  bool get wantKeepAlive {
+    return true;
+  }
 }
