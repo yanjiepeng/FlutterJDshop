@@ -15,7 +15,9 @@ class _FirstCartPageState extends State<FirstCartPage> {
     var provider = Provider.of<Cart>(context);
     ScreenAdapter.init(context);
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
           provider.addList('测试商品');
         },
