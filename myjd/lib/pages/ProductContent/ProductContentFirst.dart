@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/model/ProductContentModel.dart';
 import 'package:myjd/widet/JdButton.dart';
 import 'package:myjd/config/config.dart';
@@ -24,6 +25,8 @@ class _ProductContentFirstState extends State<ProductContentFirst>
 
   bool get wantKeepAlive => true;
 
+  var  actionEventBus ;
+
   @override
   void initState() {
     super.initState();
@@ -37,11 +40,29 @@ class _ProductContentFirstState extends State<ProductContentFirst>
      */
 
     _initAttr();
+
+    //EventBus监听
+
+    this.actionEventBus = eventBus.on<CartEvent>().listen((event) {
+
+      print(event.msg);
+      this._attrBottomSheet();
+    });
   }
 
-  /**
-   * 改造数据格式
-   */
+
+  @override
+  void dispose() {
+    super.dispose();
+    this.actionEventBus.cancel();
+
+  }
+
+  
+
+//  /**
+//   * 改造数据格式
+//   */
   void _initAttr() {
     var attr = this._attr;
 
@@ -143,6 +164,7 @@ class _ProductContentFirstState extends State<ProductContentFirst>
 
     return attrList;
   }
+
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
@@ -248,13 +270,11 @@ class _ProductContentFirstState extends State<ProductContentFirst>
     ));
   }
 
-
-  //底部弹出框
   //底部弹出框
   _attrBottomSheet() {
     showModalBottomSheet(
         context: context,
-        builder: (contex) {
+        builder: (context) {
           return StatefulBuilder(
             builder: (BuildContext context, setBottomState) {
               return GestureDetector(
@@ -315,5 +335,4 @@ class _ProductContentFirstState extends State<ProductContentFirst>
           );
         });
   }
-
 }

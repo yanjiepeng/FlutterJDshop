@@ -1,5 +1,9 @@
+import 'dart:math';
+
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/widet/LoadingWidget.dart';
 
 import 'ProductContent/ProductContentFirst.dart';
@@ -85,70 +89,92 @@ class _ProductContentState extends State<ProductContent> {
                         items: [
                           PopupMenuItem(
                               child: Row(
-                            children: <Widget>[Icon(Icons.home), Text('首页')],
-                          )),
+                                children: <Widget>[
+                                  Icon(Icons.home),
+                                  Text('首页')
+                                ],
+                              )),
                           PopupMenuItem(
                               child: Row(
-                            children: <Widget>[Icon(Icons.search), Text('搜索')],
-                          ))
+                                children: <Widget>[
+                                  Icon(Icons.search),
+                                  Text('搜索')
+                                ],
+                              ))
                         ]);
                   })
             ],
           ),
           body: this._productContentList.length > 0
               ? Stack(
-                  children: <Widget>[
-                    TabBarView(
-                      children: <Widget>[
-                        ProductContentFirst(this._productContentList),
-                        ProductContentSecond(this._productContentList),
-                        ProductContentThird()
-                      ],
-                    ),
-                    Positioned(
-                      width: ScreenAdapter.width(750),
-                      height: ScreenAdapter.width(80),
-                      bottom: 0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                              top: BorderSide(color: Colors.black26, width: 1)),
-                          color: Colors.white,
-                        ),
+            children: <Widget>[
+              TabBarView(
+                children: <Widget>[
+                  ProductContentFirst(this._productContentList),
+                  ProductContentSecond(this._productContentList),
+                  ProductContentThird()
+                ],
+              ),
+              Positioned(
+                width: ScreenAdapter.width(750),
+                height: ScreenAdapter.width(80),
+                bottom: 0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(color: Colors.black26, width: 1)),
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(
+                            top: ScreenAdapter.height(10)),
+                        width: 100,
+                        height: ScreenAdapter.height(88),
                         child: Row(
                           children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.only(
-                                  top: ScreenAdapter.height(10)),
-                              width: 100,
-                              height: ScreenAdapter.height(88),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.shopping_cart),
-                                  Text("购物车")
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: JdButton(
-                                  color: Color.fromRGBO(253, 1, 0, 0.9),
-                                  text: '加入购物车',
-                                  cb: () => print('加入购物车')),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: JdButton(
-                                  color: Color.fromRGBO(255, 165, 0, 0.9),
-                                  text: '立即购买',
-                                  cb: () => print('立即购买')),
-                            )
+                            Icon(Icons.shopping_cart),
+                            Text("购物车")
                           ],
                         ),
                       ),
-                    )
-                  ],
-                )
+                      Expanded(
+                        flex: 1,
+                        child: JdButton(
+                            color: Color.fromRGBO(253, 1, 0, 0.9),
+                            text: '加入购物车',
+                            cb: () {
+                              if ((this._productContentList[0] as ProductContentItem).attr.length > 0) {
+                                eventBus.fire(new CartEvent(
+                                    '加入购物车${this._productContentList[0].sId}'));
+                              } else {
+                                print('else 加入购物车');
+                              }
+                            }),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: JdButton(
+                            color: Color.fromRGBO(255, 165, 0, 0.9),
+                            text: '立即购买',
+                            cb: () {
+
+                              if((this._productContentList[0] as ProductContentItem).attr.length > 0) {
+                                eventBus.fire(new CartEvent(
+                                    '立即购买${this._productContentList[0].sId}'));
+                              }else{
+                                print('else 立即购买');
+
+                              }
+                            }),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          )
               : LoadingWidget(),
         ));
   }
