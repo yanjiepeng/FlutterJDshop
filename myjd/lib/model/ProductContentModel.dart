@@ -22,7 +22,7 @@ class ProductContentItem {
   String sId;
   String title;
   String cid;
-  Object price;
+  String price;
   String oldPrice;
   Object isBest;
   Object isHot;
@@ -34,6 +34,10 @@ class ProductContentItem {
   List<Attr> attr;
   String subTitle;
   Object salecount;
+
+  //新增属性
+  int count;
+  String selectAttr;
 
   ProductContentItem(
       {this.sId,
@@ -50,13 +54,15 @@ class ProductContentItem {
       this.cname,
       this.attr,
       this.subTitle,
-      this.salecount});
+      this.salecount,
+      this.count,
+      this.selectAttr});
 
   ProductContentItem.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     title = json['title'];
     cid = json['cid'];
-    price = json['price'];
+    price = json['price'].toString();
     oldPrice = json['old_price'];
     isBest = json['is_best'];
     isHot = json['is_hot'];
@@ -73,6 +79,10 @@ class ProductContentItem {
     }
     subTitle = json['sub_title'];
     salecount = json['salecount'];
+
+    //给购物操作增加的两个属性加默认值
+    count = 1;
+    selectAttr = "";
   }
 
   Map<String, dynamic> toJson() {

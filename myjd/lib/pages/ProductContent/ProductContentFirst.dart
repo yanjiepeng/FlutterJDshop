@@ -1,10 +1,14 @@
-
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/model/ProductContentModel.dart';
+import 'package:myjd/pages/ProductContent/BuyCounter.dart';
+import 'package:myjd/service/CartService.dart';
 import 'package:myjd/widet/JdButton.dart';
 import 'package:myjd/config/config.dart';
+import 'package:provider/provider.dart';
+import '../../provider/Cart.dart';
 
 class ProductContentFirst extends StatefulWidget {
   final List _productContentList;
@@ -24,7 +28,7 @@ class _ProductContentFirstState extends State<ProductContentFirst>
 
   bool get wantKeepAlive => true;
 
-  var  actionEventBus ;
+  var actionEventBus;
 
   @override
   void initState() {
@@ -43,22 +47,16 @@ class _ProductContentFirstState extends State<ProductContentFirst>
     //EventBus监听
 
     this.actionEventBus = eventBus.on<CartEvent>().listen((event) {
-
       print(event.msg);
       this._attrBottomSheet();
     });
   }
 
-
   @override
   void dispose() {
     super.dispose();
     this.actionEventBus.cancel();
-
   }
-
-  
-
 
 //  改造数据格式
   void _initAttr() {
@@ -110,6 +108,7 @@ class _ProductContentFirstState extends State<ProductContentFirst>
     // print(tempArr.join(','));
     setState(() {
       this._selectedValue = tempArr.join(',');
+      this._productContent.selectAttr = this._selectedValue;
     });
   }
 
@@ -166,6 +165,7 @@ class _ProductContentFirstState extends State<ProductContentFirst>
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
+
 
     String pic = Config.domain + this._productContent.pic;
     pic = pic.replaceAll('\\', '/');
@@ -273,6 +273,9 @@ class _ProductContentFirstState extends State<ProductContentFirst>
     showModalBottomSheet(
         context: context,
         builder: (context) {
+
+          var provider = Provider.of<Cart>(context);
+
           return StatefulBuilder(
             builder: (BuildContext context, setBottomState) {
               return GestureDetector(
@@ -288,7 +291,25 @@ class _ProductContentFirstState extends State<ProductContentFirst>
                         children: <Widget>[
                           Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: _getAttrWidget(setBottomState))
+                              children: _getAttrWidget(setBottomState)),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            height: ScreenAdapter.height(80),
+                            child: InkWell(
+                              onTap: () {},
+                              child: Row(
+                                children: <Widget>[
+                                  Text("数量: ",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  BuyCounter(this._productContent),
+                                ],
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -305,8 +326,22 @@ class _ProductContentFirstState extends State<ProductContentFirst>
                               child: JdButton(
                                 color: Color.fromRGBO(253, 1, 0, 0.9),
                                 text: "加入购物车",
-                                cb: () {
-                                  print('加入购物车');
+                                cb: () async {
+                                  await CartService.addCart(
+                                      this._productContent);
+                                  Fluttertoast.showToast(
+                                      msg: "加入购物车成功",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIos: 1,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                  Navigator.of(context).pop(); //关闭底部删选属性
+                                  //调用provider更新数据
+                                  provider.update();
+
+
                                 },
                               ),
                             ),

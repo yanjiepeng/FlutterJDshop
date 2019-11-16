@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/provider/Cart.dart';
-import 'package:provider/provider.dart';
 import 'CartCounter.dart';
+import '../../config/config.dart';
 
 class CartItem extends StatefulWidget {
+  Cart provider;
+
+  CartItem(this.provider);
+
   @override
   _CartItemState createState() => _CartItemState();
 }
@@ -13,7 +17,7 @@ class _CartItemState extends State<CartItem> {
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
-    var provider = Provider.of<Cart>(context);
+    var provider = widget.provider;
     return Expanded(
       child: provider.cartNum > 0
           ? ListView.builder(
@@ -42,7 +46,9 @@ class _CartItemState extends State<CartItem> {
                         margin: EdgeInsets.all(5),
                         width: ScreenAdapter.width(160),
                         child: Image.network(
-                            'https://www.itying.com/images/flutter/list2.jpg',
+                            Config.domain +
+                                (value['pic'])
+                                    .replaceAll('\\', '/'),
                             fit: BoxFit.cover),
                       ),
                       Expanded(
@@ -51,23 +57,32 @@ class _CartItemState extends State<CartItem> {
                           padding: const EdgeInsets.all(5.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                '保温杯（350ml)',
-                                maxLines: 2,
+                                value['title'],
+                                maxLines: 1,
+                              ),
+                              Text(
+                                value['selectAttr'],
+                                style: TextStyle(
+                                  fontSize: 12
+                                ),
+                                maxLines: 1,
                               ),
                               Stack(
                                 children: <Widget>[
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      r'$12',
+                                      value['price']
+                                          .toString(),
                                       style: TextStyle(color: Colors.red),
                                     ),
                                   ),
                                   Align(
                                     alignment: Alignment.centerRight,
-                                    child: CartCounter(),
+                                    child: CartCounter(value),
                                   ),
                                 ],
                               )
@@ -79,7 +94,9 @@ class _CartItemState extends State<CartItem> {
                   ),
                 );
               })
-          : Text(''),
+          : Center(
+              child: Text('购物车空空的'),
+            ),
     );
   }
 }

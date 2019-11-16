@@ -13,24 +13,28 @@ class _FirstCartPageState extends State<FirstCartPage> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<Cart>(context);
+
     ScreenAdapter.init(context);
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-
-        onPressed: () {
-          provider.addList('测试商品');
-        },
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        backgroundColor: Colors.red,
-      ),
+//      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+//      floatingActionButton: FloatingActionButton(
+//
+//        onPressed: () {
+//        },
+//        child: Icon(
+//          Icons.add,
+//          color: Colors.white,
+//        ),
+//        backgroundColor: Colors.red,
+//      ),
       body: Stack(
         children: <Widget>[
-          Column(
-            children: <Widget>[CartItem()],
+          Container(
+            height: double.infinity,
+            margin: EdgeInsets.only(bottom:ScreenAdapter.height(78) ),
+            child: Column(
+              children: <Widget>[CartItem(provider)],
+            ),
           ),
           Positioned(
               bottom: 0,

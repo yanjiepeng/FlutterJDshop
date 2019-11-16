@@ -2,11 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 
 class CartCounter extends StatefulWidget {
+
+  Map value ;
+  CartCounter(this.value);
+
   @override
   _CartCounterState createState() => _CartCounterState();
 }
 
 class _CartCounterState extends State<CartCounter> {
+
+
+  Map _itemData;
+  @override
+  void initState() {
+    super.initState();
+    _itemData = widget.value;
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
@@ -78,7 +91,7 @@ class _CartCounterState extends State<CartCounter> {
       width: ScreenAdapter.width(70),
       height: ScreenAdapter.height(45),
       alignment: Alignment.center,
-      child: Text('1'),
+      child: Text('${_itemData['count']}'),
     );
   }
 }
