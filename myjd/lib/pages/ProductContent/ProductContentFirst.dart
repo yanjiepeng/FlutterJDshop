@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
@@ -60,9 +59,8 @@ class _ProductContentFirstState extends State<ProductContentFirst>
 
   
 
-//  /**
-//   * 改造数据格式
-//   */
+
+//  改造数据格式
   void _initAttr() {
     var attr = this._attr;
 
