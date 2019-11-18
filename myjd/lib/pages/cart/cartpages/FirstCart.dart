@@ -56,8 +56,11 @@ class _FirstCartPageState extends State<FirstCartPage> {
                           Container(
                             width: ScreenAdapter.width(60),
                             child: Checkbox(
-                              value: true,
-                              onChanged: (value) {},
+                              value: provider.isCheckedAll,
+                              onChanged: (value) {
+                                //实现全选反选功能
+                                  provider.checkAll(value);
+                              },
                               checkColor: Colors.pink,
                             ),
                           ),

@@ -37,8 +37,13 @@ class _CartItemState extends State<CartItem> {
                       Container(
                         width: ScreenAdapter.width(60),
                         child: Checkbox(
-                          value: true,
-                          onChanged: (value) {},
+                          value: value['checked'],
+                          onChanged: (val) {
+                            setState(() {
+                              value['checked'] = !value['checked'];
+                            });
+                            provider.itemChanged();
+                          },
                           activeColor: Colors.pink,
                         ),
                       ),
@@ -47,8 +52,7 @@ class _CartItemState extends State<CartItem> {
                         width: ScreenAdapter.width(160),
                         child: Image.network(
                             Config.domain +
-                                (value['pic'])
-                                    .replaceAll('\\', '/'),
+                                (value['pic']).replaceAll('\\', '/'),
                             fit: BoxFit.cover),
                       ),
                       Expanded(
@@ -65,9 +69,7 @@ class _CartItemState extends State<CartItem> {
                               ),
                               Text(
                                 value['selectAttr'],
-                                style: TextStyle(
-                                  fontSize: 12
-                                ),
+                                style: TextStyle(fontSize: 12),
                                 maxLines: 1,
                               ),
                               Stack(
@@ -75,8 +77,7 @@ class _CartItemState extends State<CartItem> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      value['price']
-                                          .toString(),
+                                      value['price'].toString(),
                                       style: TextStyle(color: Colors.red),
                                     ),
                                   ),
