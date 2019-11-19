@@ -100,7 +100,7 @@ class _CategoryState extends State<CategoryPage>
                         ),
                       ),
                       Container(
-                        height: ScreenAdapter.height(28),
+                        height: ScreenAdapter.height(40),
                         child: Text('${this._rightCategory[index].title}' ,style: TextStyle(fontSize: 14),),
                       )
                     ],

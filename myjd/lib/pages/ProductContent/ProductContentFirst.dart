@@ -47,7 +47,6 @@ class _ProductContentFirstState extends State<ProductContentFirst>
     //EventBus监听
 
     this.actionEventBus = eventBus.on<CartEvent>().listen((event) {
-      print(event.msg);
       this._attrBottomSheet();
     });
   }

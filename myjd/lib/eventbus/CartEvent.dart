@@ -9,3 +9,12 @@ class CartEvent {
 
   CartEvent(this.msg);
 }
+
+
+class EditEvent {
+
+  bool flag;
+
+  EditEvent(this.flag);
+
+}

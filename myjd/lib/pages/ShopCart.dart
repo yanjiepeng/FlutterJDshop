@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/provider/Cart.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +25,10 @@ class _ShopCarteState extends State<ShopCartPage>
   void initState() {
     super.initState();
     _tabController = TabController(length: myTabs.length, vsync: this);
+
+
   }
+
 
   @override
   void dispose() {

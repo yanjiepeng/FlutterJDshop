@@ -1,10 +1,12 @@
-
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/pages/Category.dart';
 import 'package:myjd/pages/Home.dart';
 import 'package:myjd/pages/Mine.dart';
 import 'package:myjd/pages/ShopCart.dart';
+import 'package:myjd/pages/cart/cartpages/FirstCart.dart';
 
 class Tabs extends StatefulWidget {
   @override
@@ -20,6 +22,10 @@ class _TabsState extends State<Tabs> {
     ShopCartPage(),
     MinePage(),
   ];
+
+  var _isEdit = false;
+
+  get isEdit => _isEdit;
 
   @override
   void initState() {
@@ -109,15 +115,29 @@ class _TabsState extends State<Tabs> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('购物车',style: TextStyle(color: Colors.white),),
-            Icon(Icons.add_location ,color: Colors.white,)
+            Text(
+              '购物车',
+              style: TextStyle(color: Colors.white),
+            ),
+            Icon(
+              Icons.add_location,
+              color: Colors.white,
+            )
           ],
         ),
         actions: <Widget>[
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-            Text(
-              '编辑',
-              style: TextStyle(color: Colors.white, fontSize: 19),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  this._isEdit = !this._isEdit;
+                });
+                eventBus.fire(new EditEvent(this._isEdit));
+              },
+              child: Text(
+                '编辑',
+                style: TextStyle(color: Colors.white, fontSize: 19),
+              ),
             ),
           ]),
           IconButton(

@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/pages/cart/CartItem.dart';
 import 'package:provider/provider.dart';
 import 'package:myjd/provider/Cart.dart';
@@ -10,6 +13,30 @@ class FirstCartPage extends StatefulWidget {
 }
 
 class _FirstCartPageState extends State<FirstCartPage> {
+  bool _isEdit = false;
+
+  var res;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    res = eventBus.on<EditEvent>().listen((event) {
+      print('eventbus222 ${event.flag}');
+
+      setState(() {
+        this._isEdit = event.flag;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    res?.cancel();
+  }
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<Cart>(context);
@@ -31,7 +58,7 @@ class _FirstCartPageState extends State<FirstCartPage> {
         children: <Widget>[
           Container(
             height: double.infinity,
-            margin: EdgeInsets.only(bottom:ScreenAdapter.height(78) ),
+            margin: EdgeInsets.only(bottom: ScreenAdapter.height(78)),
             child: Column(
               children: <Widget>[CartItem(provider)],
             ),
@@ -59,26 +86,45 @@ class _FirstCartPageState extends State<FirstCartPage> {
                               value: provider.isCheckedAll,
                               onChanged: (value) {
                                 //实现全选反选功能
-                                  provider.checkAll(value);
+                                provider.checkAll(value);
                               },
                               checkColor: Colors.pink,
                             ),
                           ),
-                          Text('全选')
+                          Text('全选'),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            '总价${provider.totalPrice}',
+                            style: TextStyle(color: Colors.red, fontSize: 14),
+                          )
                         ],
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: RaisedButton(
-                        child: Text(
-                          '结算',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {},
-                        color: Colors.red,
-                      ),
-                    )
+                    this._isEdit
+                        ? Align(
+                            alignment: Alignment.centerRight,
+                            child: RaisedButton(
+                              child: Text(
+                                '删除',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {},
+                              color: Colors.red,
+                            ),
+                          )
+                        : Align(
+                            alignment: Alignment.centerRight,
+                            child: RaisedButton(
+                              child: Text(
+                                '结算',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {},
+                              color: Colors.red,
+                            ),
+                          )
                   ],
                 ),
               ))
