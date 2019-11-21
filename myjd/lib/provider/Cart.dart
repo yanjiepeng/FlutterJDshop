@@ -96,4 +96,30 @@ class Cart with ChangeNotifier {
     this._totalPrice = allprice;
     notifyListeners();
   }
+
+  //删除购物车  错误写法  因为删除了之后 index会改变
+  removeItem() {
+    for (var i = 0; i < this.cartList.length; i++) {
+      if (cartList[i]['checked']) {
+        this._cartList.remove(cartList[i]);
+      }
+    }
+  }
+
+  //删除购物车 思想：遍历cartList获取没勾选的商品 保存到temp 最后赋给cartList
+  removeCartItem() {
+    List tempList = [];
+
+    for (var i = 0; i < this.cartList.length; i++) {
+      if (!cartList[i]['checked']) {
+        tempList.add(this._cartList[i]);
+      }
+    }
+    this._cartList = tempList;
+
+    //计算一次总价
+    computeTotalPrice();
+    Storage.setString('cartList', json.encode(this._cartList));
+    notifyListeners();
+  }
 }

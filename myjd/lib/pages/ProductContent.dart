@@ -15,6 +15,7 @@ import 'package:myjd/widet/JdButton.dart';
 import 'package:dio/dio.dart';
 import 'package:myjd/model/ProductContentModel.dart';
 import 'package:myjd/config/config.dart';
+import '../eventbus/CartEvent.dart';
 
 class ProductContent extends StatefulWidget {
   final Map arguments;
@@ -124,16 +125,22 @@ class _ProductContentState extends State<ProductContent> {
                         ),
                         child: Row(
                           children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.only(
-                                  top: ScreenAdapter.height(10)),
-                              width: 100,
-                              height: ScreenAdapter.height(88),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.shopping_cart),
-                                  Text("购物车")
-                                ],
+                            InkWell(
+                              onTap: (){
+                                  Navigator.pop(context);
+                                  eventBus.fire(new TabEvent(2));
+                              },
+                              child: Container(
+                                padding: EdgeInsets.only(
+                                    top: ScreenAdapter.height(10)),
+                                width: 100,
+                                height: ScreenAdapter.height(88),
+                                child: Row(
+                                  children: <Widget>[
+                                    Icon(Icons.shopping_cart),
+                                    Text("购物车")
+                                  ],
+                                ),
                               ),
                             ),
                             Expanded(

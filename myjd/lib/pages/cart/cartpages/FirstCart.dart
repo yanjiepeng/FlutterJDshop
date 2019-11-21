@@ -95,10 +95,10 @@ class _FirstCartPageState extends State<FirstCartPage> {
                           SizedBox(
                             width: 20,
                           ),
-                          Text(
+                          !this._isEdit?Text(
                             '总价${provider.totalPrice}',
-                            style: TextStyle(color: Colors.red, fontSize: 14),
-                          )
+                            style: TextStyle(color: Colors.red, fontSize: 20),
+                          ):Text('')
                         ],
                       ),
                     ),
@@ -110,7 +110,9 @@ class _FirstCartPageState extends State<FirstCartPage> {
                                 '删除',
                                 style: TextStyle(color: Colors.white),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                provider.removeCartItem();
+                              },
                               color: Colors.red,
                             ),
                           )

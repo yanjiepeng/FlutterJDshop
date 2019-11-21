@@ -27,10 +27,31 @@ class _TabsState extends State<Tabs> {
 
   get isEdit => _isEdit;
 
+  var event;
   @override
   void initState() {
     super.initState();
     this._pageController = PageController(initialPage: this._currentIndex);
+
+
+    event = eventBus.on<TabEvent>().listen((event){
+
+       int index = event.index;
+       setState(() {
+         this._currentIndex = index;
+         this._pageController.jumpToPage(this._currentIndex);
+       });
+
+    });
+
+
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    event.dispose();
   }
 
   @override

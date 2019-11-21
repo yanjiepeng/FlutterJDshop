@@ -124,7 +124,9 @@ class _ProductContentFirstState extends State<ProductContentFirst>
             _changeAtter(attrItem.cate, item["title"], setBottomState);
           },
           child: Chip(
-            label: Text("${item["title"]}"),
+            label: Text("${item["title"]}" , style: TextStyle(
+              color:item["checked"] ? Colors.white : Colors.black54
+            ),),
             padding: EdgeInsets.all(10),
             backgroundColor: item["checked"] ? Colors.red : Colors.black26,
           ),
