@@ -107,6 +107,8 @@ class _ProductContentState extends State<ProductContent> {
               ? Stack(
                   children: <Widget>[
                     TabBarView(
+                      //禁止滑动
+                      physics: NeverScrollableScrollPhysics(),
                       children: <Widget>[
                         ProductContentFirst(this._productContentList),
                         ProductContentSecond(this._productContentList),
@@ -126,16 +128,18 @@ class _ProductContentState extends State<ProductContent> {
                         child: Row(
                           children: <Widget>[
                             InkWell(
-                              onTap: (){
-                                  Navigator.pop(context);
-                                  eventBus.fire(new TabEvent(2));
+                              onTap: () {
+                                Navigator.pop(context);
+                                eventBus.fire(new TabEvent(2));
                               },
                               child: Container(
                                 padding: EdgeInsets.only(
-                                    top: ScreenAdapter.height(10)),
+                                    bottom: ScreenAdapter.height(10)),
                                 width: 100,
                                 height: ScreenAdapter.height(88),
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(Icons.shopping_cart),
                                     Text("购物车")
@@ -167,9 +171,7 @@ class _ProductContentState extends State<ProductContent> {
                                           timeInSecForIos: 1,
                                           backgroundColor: Colors.red,
                                           textColor: Colors.white,
-                                          fontSize: 16.0
-                                      );
-
+                                          fontSize: 16.0);
                                     }
                                   }),
                             ),

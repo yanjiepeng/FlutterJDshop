@@ -62,6 +62,7 @@ class _ProductContentFirstState extends State<ProductContentFirst>
     var attr = this._attr;
 
     for (var i = 0; i < attr.length; i++) {
+
       for (var j = 0; j < attr[i].list.length; j++) {
         if (j == 0) {
           attr[i].checkList.add({"title": attr[i].list[j], "checked": true});
@@ -281,6 +282,9 @@ class _ProductContentFirstState extends State<ProductContentFirst>
             builder: (BuildContext context, setBottomState) {
               return GestureDetector(
                 //解决showModalBottomSheet点击消失的问题
+
+                //不透明的目标可能会被点击测试击中，导致它们既接收到其边界内的事件，又阻止它们后面的目标在视觉上也接收到事件。 防止穿透
+                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   return false;
                 },
