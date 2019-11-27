@@ -1,4 +1,3 @@
-import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/eventbus/CartEvent.dart';
@@ -6,7 +5,6 @@ import 'package:myjd/pages/Category.dart';
 import 'package:myjd/pages/Home.dart';
 import 'package:myjd/pages/Mine.dart';
 import 'package:myjd/pages/ShopCart.dart';
-import 'package:myjd/pages/cart/cartpages/FirstCart.dart';
 
 class Tabs extends StatefulWidget {
   @override
@@ -171,9 +169,7 @@ class _TabsState extends State<Tabs> {
         ],
       );
     } else {
-      return AppBar(
-        title: Text('企业中心'),
-      );
+      return null;
     }
   }
 }
