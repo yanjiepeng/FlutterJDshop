@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myjd/pages/Login.dart';
 import 'package:myjd/pages/ProductContent.dart';
+import 'package:myjd/pages/Register/RegisterFirst.dart';
+import 'package:myjd/pages/Register/RegisterSecond.dart';
+import 'package:myjd/pages/Register/RegisterThird.dart';
 import 'package:myjd/pages/Search.dart';
 import '../pages/tabs/Tab.dart';
 import '../pages/ProductList.dart';
@@ -9,6 +13,10 @@ import 'package:myjd/pages/ShopCart.dart';
 final routes = {
   '/': (context) => Tabs(),
   '/search': (context) => SearchPage(),
+  '/login': (context) => LoginPage(),
+  '/registerfirst': (context) => RegisterFirst(),
+  '/registersecond': (context) => RegisterSecond(),
+  '/registerthird': (context) => RegisterThird(),
   '/productlist': (context, {arguments}) => ProductListPage(arguments),
   '/productContent': (context, {arguments}) =>
       ProductContent(arguments: arguments),

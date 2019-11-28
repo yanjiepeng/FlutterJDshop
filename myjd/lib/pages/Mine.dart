@@ -32,9 +32,14 @@ class _MineeState extends State<MinePage> with AutomaticKeepAliveClientMixin {
                     ),
                   ),
                 ),
-                Expanded(flex: 1, child: Text('登录/注册',style: TextStyle(
-                  color: Colors.white
-                ),))
+                Expanded(flex: 1, child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  child: Text('登录/注册', style: TextStyle(
+                      color: Colors.white
+                  ),),
+                ))
               ],
             ),
           ),
