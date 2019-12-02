@@ -15,7 +15,9 @@ final routes = {
   '/search': (context) => SearchPage(),
   '/login': (context) => LoginPage(),
   '/registerfirst': (context) => RegisterFirst(),
-  '/registersecond': (context) => RegisterSecond(),
+  '/registersecond': (context, {arguments}) => RegisterSecond(
+        arguments: arguments,
+      ),
   '/registerthird': (context) => RegisterThird(),
   '/productlist': (context, {arguments}) => ProductListPage(arguments),
   '/productContent': (context, {arguments}) =>
