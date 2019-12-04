@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
+import 'package:myjd/service/UserService.dart';
+import 'package:myjd/widet/JdButton.dart';
 
 class MinePage extends StatefulWidget {
   @override
@@ -7,6 +9,27 @@ class MinePage extends StatefulWidget {
 }
 
 class _MineeState extends State<MinePage> with AutomaticKeepAliveClientMixin {
+  bool isLogin = false;
+
+  List userInfo = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getUserInfo();
+  }
+
+  _getUserInfo() async {
+    var isLogin = await UserService.getUserLoginState();
+    List user = await UserService.getUserInfo();
+
+    setState(() {
+      this.userInfo = user;
+      this.isLogin = isLogin;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +55,35 @@ class _MineeState extends State<MinePage> with AutomaticKeepAliveClientMixin {
                     ),
                   ),
                 ),
-                Expanded(flex: 1, child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/login');
-                  },
-                  child: Text('登录/注册', style: TextStyle(
-                      color: Colors.white
-                  ),),
-                ))
+                this.isLogin
+                    ? Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("用户名：${this.userInfo[0]["username"]}",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: ScreenAdapter.size(32))),
+                            Text("普通会员",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: ScreenAdapter.size(24))),
+                          ],
+                        ),
+                      )
+                    : Expanded(
+                        flex: 1,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/login');
+                          },
+                          child: Text(
+                            '登录/注册',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ))
               ],
             ),
           ),
@@ -92,6 +136,14 @@ class _MineeState extends State<MinePage> with AutomaticKeepAliveClientMixin {
             ),
             title: Text('在线客服'),
           ),
+          Divider(),
+          JdButton(
+            text: "退出登录",
+            cb: () {
+              UserService.loginOut();
+              this._getUserInfo();
+            },
+          )
         ],
       ),
     );

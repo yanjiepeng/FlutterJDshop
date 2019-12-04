@@ -78,12 +78,17 @@ class _RegisterSecondState extends State<RegisterSecond> {
               height: 40,
             ),
             Stack(
+
               children: <Widget>[
-                JdInputText(
-                  text: '请输入验证码',
-                  onChanged: (value) {
-                    this.code = value;
-                  },
+                Container(
+                  height: ScreenAdapter.height(100),
+                  child: JdInputText(
+                    text: '请输入验证码',
+                    onChanged: (value) {
+                      this.code = value;
+                    },
+
+                  ),
                 ),
                 Positioned(
                   right: 0,
@@ -135,7 +140,10 @@ class _RegisterSecondState extends State<RegisterSecond> {
     var api = '${Config.domain}api/validateCode';
     var response = await Dio().post(api, data: {"tel": this.tel,"code": this.code});
     if (response.data["success"]) {
-      Navigator.pushNamed(context, '/registerthird');
+      Navigator.pushNamed(context, '/registerthird',arguments: {
+        'tel':this.tel,
+        'code':this.code,
+      });
     }else{
       Fluttertoast.showToast(
         msg: '${response.data["message"]}',

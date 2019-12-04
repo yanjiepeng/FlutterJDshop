@@ -13,7 +13,7 @@ class RegisterFirst extends StatefulWidget {
 }
 
 class _RegisterFirstState extends State<RegisterFirst> {
-  String tel;
+  String tel = '';
 
   @override
   Widget build(BuildContext context) {
