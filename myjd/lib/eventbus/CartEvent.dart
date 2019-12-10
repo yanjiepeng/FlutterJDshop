@@ -20,3 +20,8 @@ class TabEvent {
 
   TabEvent(this.index);
 }
+
+class UserEvent {
+  String str;
+  UserEvent(this.str);
+}

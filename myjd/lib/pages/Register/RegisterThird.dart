@@ -103,7 +103,7 @@ class _RegisterThirdState extends State<RegisterThird> {
 
       if (response.data['success']) {
         //保存用户信息返回到跟
-        Storage.setString('userinfo', json.encode(response.data['userinfo']));
+        Storage.setString('userInfo', json.encode(response.data['userinfo']));
 
         //返回到根
         Navigator.of(context).pushAndRemoveUntil(

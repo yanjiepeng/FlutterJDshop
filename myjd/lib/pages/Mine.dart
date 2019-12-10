@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/service/UserService.dart';
 import 'package:myjd/widet/JdButton.dart';
 
@@ -16,8 +17,12 @@ class _MineeState extends State<MinePage> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
-
     _getUserInfo();
+
+    //监听登录广播
+    eventBus.on<UserEvent>().listen((event) {
+      _getUserInfo();
+    });
   }
 
   _getUserInfo() async {
@@ -137,13 +142,19 @@ class _MineeState extends State<MinePage> with AutomaticKeepAliveClientMixin {
             title: Text('在线客服'),
           ),
           Divider(),
-          JdButton(
-            text: "退出登录",
-            cb: () {
-              UserService.loginOut();
-              this._getUserInfo();
-            },
-          )
+          this.isLogin
+              ? Container(
+                  padding: EdgeInsets.all(20),
+                  child: JdButton(
+                    color: Colors.red,
+                    text: "退出登录",
+                    cb: () {
+                      UserService.loginOut();
+                      this._getUserInfo();
+                    },
+                  ),
+                )
+              : Text("")
         ],
       ),
     );
