@@ -5,6 +5,7 @@ import 'package:myjd/pages/Register/RegisterFirst.dart';
 import 'package:myjd/pages/Register/RegisterSecond.dart';
 import 'package:myjd/pages/Register/RegisterThird.dart';
 import 'package:myjd/pages/Search.dart';
+import 'package:myjd/pages/tabs/Checkout.dart';
 import '../pages/tabs/Tab.dart';
 import '../pages/ProductList.dart';
 import 'package:myjd/pages/ShopCart.dart';
@@ -23,6 +24,7 @@ final routes = {
   '/productContent': (context, {arguments}) =>
       ProductContent(arguments: arguments),
   '/shopcart': (context) => ShopCartPage(),
+  '/checkout': (context) => CheckoutPage(),
   // '/search': (context) => SearchPage(),
 };
 

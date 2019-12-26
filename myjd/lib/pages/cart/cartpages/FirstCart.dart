@@ -37,6 +37,16 @@ class _FirstCartPageState extends State<FirstCartPage> {
     res?.cancel();
   }
 
+  void doCheckOut(){
+    //判断用户是否登录 保存购物车数据
+
+    Navigator.pushNamed(context, '/checkout');
+
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<Cart>(context);
@@ -123,7 +133,7 @@ class _FirstCartPageState extends State<FirstCartPage> {
                                 '结算',
                                 style: TextStyle(color: Colors.white),
                               ),
-                              onPressed: () {},
+                              onPressed: doCheckOut,
                               color: Colors.red,
                             ),
                           )
