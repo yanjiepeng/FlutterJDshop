@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myjd/routes/route.dart' as prefix0;
 import 'package:provider/provider.dart';
 import 'provider/Cart.dart';
+import 'provider/Checkout.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           builder: (_) => Cart(),
-        )
+        ),
+         ChangeNotifierProvider(
+          builder: (_) => Checkout(),
+        ),
       ],
       child: MaterialApp(
         // home: Tabs(),

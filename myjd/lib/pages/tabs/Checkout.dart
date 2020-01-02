@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/config/config.dart';
+import 'package:myjd/provider/Checkout.dart';
+import 'package:provider/provider.dart';
 
 class CheckoutPage extends StatefulWidget {
   @override
@@ -8,7 +10,7 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
-  Widget checkOutItem() {
+  Widget checkOutItem(item) {
     return Row(
       children: <Widget>[
         Container(
@@ -16,7 +18,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
           width: ScreenAdapter.width(160),
           child: Image.network(
 //              Config.domain + (value['pic']).replaceAll('\\', '/'),
-              'https://cdnfile.aixifan.com/static/umeditor/emotion/images/ac/33.gif',
+                    Config.domain +
+                                (item['pic']).replaceAll('\\', '/'),
               fit: BoxFit.cover),
         ),
         Expanded(
@@ -28,11 +31,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  '测试数据',
+                  item['title'],
                   maxLines: 1,
                 ),
                 Text(
-                  '测试数据',
+                  item['selectAttr'],
                   style: TextStyle(fontSize: 12),
                   maxLines: 1,
                 ),
@@ -41,13 +44,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        '测试数据',
+                        item['price'].toString(),
                         style: TextStyle(color: Colors.red),
                       ),
                     ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: Text('x2'),
+                      child: Text(item['count'].toString()),
                     ),
                   ],
                 )
@@ -61,6 +64,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   @override
   Widget build(BuildContext context) {
+    var checkoutProvider = Provider.of<Checkout>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('结算'),
@@ -109,11 +114,17 @@ class _CheckoutPageState extends State<CheckoutPage> {
               Container(
                 padding: EdgeInsets.all(ScreenAdapter.width(12)),
                 child: Column(
-                  children: <Widget>[
-                    checkOutItem(),
-                    Divider(),
-                    checkOutItem(),
-                  ],
+                  children: checkoutProvider.chckoutList.map((item) {
+                    return Column(
+                      children: <Widget>[
+
+
+                          checkOutItem(item),
+                          Divider()
+
+                      ],
+                    );
+                  }).toList(),
                 ),
               ),
               SizedBox(
@@ -126,7 +137,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('商品总金额：￥200'),
+                    Text('商品总金额：${checkoutProvider.totalPrice.toString()}'),
                     SizedBox(
                       height: 10,
                     ),
@@ -145,6 +156,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               width: ScreenAdapter.width(750),
               height: ScreenAdapter.height(100),
               child: Container(
+                padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border(
@@ -154,7 +166,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        '总价：￥140',
+                        '${checkoutProvider.totalPrice - 50.0}',
                         style: TextStyle(color: Colors.red),
                       ),
                     ),

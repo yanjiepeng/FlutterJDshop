@@ -51,9 +51,9 @@ class CartService {
     data['_id'] = item.sId;
     data['title'] = item.title;
     //处理类型
-    if(item.price is int || item.price is double) {
+    if (item.price is int || item.price is double) {
       data['price'] = item.price;
-    }else{
+    } else {
       data['price'] = double.parse(item.price);
     }
 
@@ -105,4 +105,37 @@ class CartService {
 
       */
 
+  //获取购物车选中数据
+
+  static getCheckOutData() async {
+    List cartListData = [];
+
+    try {
+      cartListData = json.decode(await Storage.getString('cartList'));
+    } catch (e) {
+      cartListData = [];
+    }
+
+    List tempCheckOutData = [];
+
+    //筛选选中部分
+    for (var i = 0; i < cartListData.length; i++) {
+      if (cartListData[i]['checked']) tempCheckOutData.add(cartListData[i]);
+    }
+
+    return tempCheckOutData;
+  }
+
+  //获取购物车总价
+
+  static getTotalPrice() async {
+    var data = await getCheckOutData();
+    double totalPrice = 0.0;
+
+    for (var item in data) {
+      totalPrice += item['price'];
+    }
+
+    return totalPrice;
+  }
 }
