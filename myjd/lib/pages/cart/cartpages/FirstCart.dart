@@ -1,9 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/pages/cart/CartItem.dart';
+import 'package:myjd/provider/Checkout.dart';
+import 'package:myjd/service/CartService.dart';
+import 'package:myjd/service/UserService.dart';
 import 'package:provider/provider.dart';
 import 'package:myjd/provider/Cart.dart';
 
@@ -16,10 +20,10 @@ class _FirstCartPageState extends State<FirstCartPage> {
   bool _isEdit = false;
 
   var res;
+  Checkout checkOutProvider;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     res = eventBus.on<EditEvent>().listen((event) {
       print('eventbus222 ${event.flag}');
@@ -32,26 +36,56 @@ class _FirstCartPageState extends State<FirstCartPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     res?.cancel();
   }
 
-  void doCheckOut(){
+  Future doCheckOut() async {
     //判断用户是否登录 保存购物车数据
 
-    Navigator.pushNamed(context, '/checkout');
+    var checkoutData = await CartService.getCheckOutData();
 
+    var totolPrice = await CartService.getTotalPrice();
+
+    print(checkoutData);
+
+    //保存购物车数据在provider
+    this.checkOutProvider.changeCheckOutList(checkoutData);
+
+    this.checkOutProvider.setTotalPrice(totolPrice);
+
+
+
+    //判断购物车是否有数据
+
+    if (checkoutData.length != 0) {
+      //判断是否登录
+      var isLogin = await UserService.getUserLoginState();
+
+      if (isLogin) {
+        Navigator.pushNamed(context, '/checkout');
+      } else {
+        Fluttertoast.showToast(
+            msg: '您还没有登录，请先登录',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM);
+
+        Navigator.pushNamed(context, '/login');
+      }
+    } else {
+      Fluttertoast.showToast(
+          msg: '购物车没有选中的数据',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM);
+    }
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<Cart>(context);
-
+    checkOutProvider = Provider.of<Checkout>(context);
     ScreenAdapter.init(context);
+
     return Scaffold(
 //      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
 //      floatingActionButton: FloatingActionButton(
@@ -105,10 +139,13 @@ class _FirstCartPageState extends State<FirstCartPage> {
                           SizedBox(
                             width: 20,
                           ),
-                          !this._isEdit?Text(
-                            '总价${provider.totalPrice}',
-                            style: TextStyle(color: Colors.red, fontSize: 20),
-                          ):Text('')
+                          !this._isEdit
+                              ? Text(
+                                  '总价${provider.totalPrice}',
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 20),
+                                )
+                              : Text('')
                         ],
                       ),
                     ),

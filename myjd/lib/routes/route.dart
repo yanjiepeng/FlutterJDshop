@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:myjd/pages/AddAdress.dart';
 import 'package:myjd/pages/Login.dart';
 import 'package:myjd/pages/ProductContent.dart';
 import 'package:myjd/pages/Register/RegisterFirst.dart';
 import 'package:myjd/pages/Register/RegisterSecond.dart';
 import 'package:myjd/pages/Register/RegisterThird.dart';
 import 'package:myjd/pages/Search.dart';
-import 'package:myjd/pages/tabs/Checkout.dart';
+import 'package:myjd/pages/Checkout.dart';
 import '../pages/tabs/Tab.dart';
 import '../pages/ProductList.dart';
 import 'package:myjd/pages/ShopCart.dart';
@@ -26,6 +27,7 @@ final routes = {
   '/shopcart': (context) => ShopCartPage(),
   '/checkout': (context) => CheckoutPage(),
   // '/search': (context) => SearchPage(),
+   '/addadress': (context) => AddAddressPage(),
 };
 
 //固定写法
