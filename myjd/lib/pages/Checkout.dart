@@ -92,7 +92,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     ),
                     ListTile(
                       onTap: (){
-                        Navigator.pushNamed(context, '/addadress');
+                        Navigator.pushNamed(context, '/addresslist');
                       },
                       leading: Icon(
                         Icons.add_location,

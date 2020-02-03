@@ -5,9 +5,9 @@ INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml:1:1-33:12
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml:1:1-33:12
 MERGED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml:1:1-33:12
-MERGED from [:fluttertoast] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\fluttertoast\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-7:12
-MERGED from [:shared_preferences] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\shared_preferences\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-7:12
-MERGED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-20:12
+MERGED from [io.github.ponnamkarthik.toast.fluttertoast:fluttertoast_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\fluttertoast_release-1.0.aar\d7b0b2e7469f0868386904cd99f5764a\AndroidManifest.xml:2:1-7:12
+MERGED from [io.flutter.plugins.sharedpreferences:shared_preferences_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\shared_preferences_release-1.0.aar\d527d607878a52e9729514f40e758a34\AndroidManifest.xml:2:1-7:12
+MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.webkit:webkit:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\webkit-1.0.0.aar\f1244a73c1a13d41fe3d35e79aff2c04\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.browser:browser:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\8ab617e251b0b29c2865683b358319fb\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\7ce79144d7ff104aa2f5aa48e3d19da2\AndroidManifest.xml:17:1-22:12
@@ -25,16 +25,16 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\1778
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\cb3fa900d9e2aae57fbc825e6fed4e8e\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\11a18992fe8c1daa039c94fc94bac835\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\d9613f44e70f4c881783def025a981a4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\65a64dbcc1d281905d16885e8d817bc1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\342f33d2405532d7bea73e10b443bd3b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\469e7f3ba5f1f1f1ce8552398e0f05e0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\c89601edef51ee90218339a6ff94d743\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\977d2e44ff02e9934de522fad5754f79\AndroidManifest.xml:17:1-25:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\51db1beafe25feb1c37b46e6fbf6561e\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\65a64dbcc1d281905d16885e8d817bc1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\05d0522066202c37b165973912f58dcd\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\55afadce0243346123223d8160eff351\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\30115f533df852f9dd99b643b9b4b787\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\0286e0e8b61f3a7f60f7749e13e7f58a\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\05d0522066202c37b165973912f58dcd\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\342f33d2405532d7bea73e10b443bd3b\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\469e7f3ba5f1f1f1ce8552398e0f05e0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\a66f6db456b398f149540248d68f99ed\AndroidManifest.xml:17:1-22:12
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\debug\AndroidManifest.xml:1:1-7:12
@@ -55,8 +55,8 @@ INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop
 		ADDED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml:1:11-69
 application
 ADDED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml:9:5-32:19
-MERGED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-18:19
-MERGED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-18:19
+MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:9:5-18:19
+MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:9:5-18:19
 MERGED from [androidx.core:core:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\d9613f44e70f4c881783def025a981a4\AndroidManifest.xml:22:5-89
 MERGED from [androidx.core:core:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\d9613f44e70f4c881783def025a981a4\AndroidManifest.xml:22:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\977d2e44ff02e9934de522fad5754f79\AndroidManifest.xml:22:5-23:19
@@ -103,12 +103,12 @@ uses-sdk
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml
-MERGED from [:fluttertoast] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\fluttertoast\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-44
-MERGED from [:fluttertoast] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\fluttertoast\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\shared_preferences\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\shared_preferences\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-44
+MERGED from [io.github.ponnamkarthik.toast.fluttertoast:fluttertoast_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\fluttertoast_release-1.0.aar\d7b0b2e7469f0868386904cd99f5764a\AndroidManifest.xml:5:5-44
+MERGED from [io.github.ponnamkarthik.toast.fluttertoast:fluttertoast_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\fluttertoast_release-1.0.aar\d7b0b2e7469f0868386904cd99f5764a\AndroidManifest.xml:5:5-44
+MERGED from [io.flutter.plugins.sharedpreferences:shared_preferences_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\shared_preferences_release-1.0.aar\d527d607878a52e9729514f40e758a34\AndroidManifest.xml:5:5-44
+MERGED from [io.flutter.plugins.sharedpreferences:shared_preferences_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\shared_preferences_release-1.0.aar\d527d607878a52e9729514f40e758a34\AndroidManifest.xml:5:5-44
+MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:5:5-44
+MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:5:5-44
 MERGED from [androidx.webkit:webkit:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\webkit-1.0.0.aar\f1244a73c1a13d41fe3d35e79aff2c04\AndroidManifest.xml:20:5-44
 MERGED from [androidx.webkit:webkit:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\webkit-1.0.0.aar\f1244a73c1a13d41fe3d35e79aff2c04\AndroidManifest.xml:20:5-44
 MERGED from [androidx.browser:browser:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\8ab617e251b0b29c2865683b358319fb\AndroidManifest.xml:20:5-44
@@ -143,26 +143,26 @@ MERGED from [androidx.loader:loader:1.0.0] C:\Users\17780\.gradle\caches\transfo
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\11a18992fe8c1daa039c94fc94bac835\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\d9613f44e70f4c881783def025a981a4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\d9613f44e70f4c881783def025a981a4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\65a64dbcc1d281905d16885e8d817bc1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\65a64dbcc1d281905d16885e8d817bc1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\342f33d2405532d7bea73e10b443bd3b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\342f33d2405532d7bea73e10b443bd3b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\469e7f3ba5f1f1f1ce8552398e0f05e0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\469e7f3ba5f1f1f1ce8552398e0f05e0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\c89601edef51ee90218339a6ff94d743\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\c89601edef51ee90218339a6ff94d743\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\977d2e44ff02e9934de522fad5754f79\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\977d2e44ff02e9934de522fad5754f79\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\51db1beafe25feb1c37b46e6fbf6561e\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\51db1beafe25feb1c37b46e6fbf6561e\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\65a64dbcc1d281905d16885e8d817bc1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\65a64dbcc1d281905d16885e8d817bc1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\05d0522066202c37b165973912f58dcd\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\05d0522066202c37b165973912f58dcd\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\55afadce0243346123223d8160eff351\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\55afadce0243346123223d8160eff351\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\30115f533df852f9dd99b643b9b4b787\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\30115f533df852f9dd99b643b9b4b787\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\0286e0e8b61f3a7f60f7749e13e7f58a\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\0286e0e8b61f3a7f60f7749e13e7f58a\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\05d0522066202c37b165973912f58dcd\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\05d0522066202c37b165973912f58dcd\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\342f33d2405532d7bea73e10b443bd3b\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\342f33d2405532d7bea73e10b443bd3b\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\469e7f3ba5f1f1f1ce8552398e0f05e0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\469e7f3ba5f1f1f1ce8552398e0f05e0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\a66f6db456b398f149540248d68f99ed\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\a66f6db456b398f149540248d68f99ed\AndroidManifest.xml:20:5-44
 INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\debug\AndroidManifest.xml
@@ -175,23 +175,23 @@ INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop
 		INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\debug\AndroidManifest.xml:6:5-66
-MERGED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-67
-MERGED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-67
+MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:7:5-67
+MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:7:5-67
 	android:name
 		ADDED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\debug\AndroidManifest.xml:6:22-64
 activity#com.pichillilorenzo.flutter_inappbrowser.InAppBrowserActivity
-ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:9-13:47
+ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:10:9-13:47
 	android:configChanges
-		ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:13-59
+		ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:12:13-59
 	android:theme
-		ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:13:13-44
+		ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:13:13-44
 	android:name
-		ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:13-89
+		ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:11:13-89
 activity#com.pichillilorenzo.flutter_inappbrowser.ChromeCustomTabs.ChromeCustomTabsActivity
-ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:14:9-17:55
+ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:14:9-17:55
 	android:configChanges
-		ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:16:13-59
+		ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:16:13-59
 	android:theme
-		ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:17:13-52
+		ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:17:13-52
 	android:name
-		ADDED from [:flutter_inappbrowser] G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\build\flutter_inappbrowser\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:15:13-110
+		ADDED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:15:13-110

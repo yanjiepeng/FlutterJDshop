@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Feb 03 11:57:47 CST 2020
+#Mon Feb 03 13:06:42 CST 2020
 17.baseType=DIRECTORY
 4.path=lib/x86/libflutter.so
 8.set=DEX
