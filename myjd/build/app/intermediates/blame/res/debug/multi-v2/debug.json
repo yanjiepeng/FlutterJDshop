@@ -179,25 +179,6 @@
             "outputFile": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\flutter_inappbrowser\\intermediates\\packaged_res\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,11",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,102,153,210,259,306,353,426",
-                        "endLines": "2,3,4,5,6,7,10,18",
-                        "endColumns": "46,50,56,48,46,46,12,12",
-                        "endOffsets": "97,148,205,254,301,348,421,873"
-                    },
-                    "to": {
-                        "startLines": "1714,1715,1716,1717,1718,1719,1727,3097",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "96515,96562,96613,96670,96719,96766,97379,188887",
-                        "endLines": "1714,1715,1716,1717,1718,1719,1729,3104",
-                        "endColumns": "46,50,56,48,46,46,12,12",
-                        "endOffsets": "96557,96608,96665,96714,96761,96808,97447,189334"
-                    }
-                },
-                {
                     "source": "C:\\Users\\17780\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\d9613f44e70f4c881783def025a981a4\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,6,13,56,88,125,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,171,172,176,177,178",
@@ -271,6 +252,25 @@
                         "endLines": "2,779,868,3203",
                         "endColumns": "60,24,24,12",
                         "endOffsets": "161,43040,48251,197188"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\17780\\.gradle\\caches\\transforms-1\\files-1.1\\flutter_inappbrowser_release-1.0.aar\\9de447ff8bb45935c83da3134410c10c\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,11",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,102,153,210,259,306,353,426",
+                        "endLines": "2,3,4,5,6,7,10,18",
+                        "endColumns": "46,50,56,48,46,46,12,12",
+                        "endOffsets": "97,148,205,254,301,348,421,873"
+                    },
+                    "to": {
+                        "startLines": "1714,1715,1716,1717,1718,1719,1727,3097",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "96515,96562,96613,96670,96719,96766,97379,188887",
+                        "endLines": "1714,1715,1716,1717,1718,1719,1729,3104",
+                        "endColumns": "46,50,56,48,46,46,12,12",
+                        "endOffsets": "96557,96608,96665,96714,96761,96808,97447,189334"
                     }
                 },
                 {

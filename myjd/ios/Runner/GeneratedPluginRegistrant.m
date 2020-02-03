@@ -3,9 +3,24 @@
 //
 
 #import "GeneratedPluginRegistrant.h"
+
+#if __has_include(<flutter_inappbrowser/InAppBrowserFlutterPlugin.h>)
 #import <flutter_inappbrowser/InAppBrowserFlutterPlugin.h>
+#else
+@import flutter_inappbrowser;
+#endif
+
+#if __has_include(<fluttertoast/FluttertoastPlugin.h>)
 #import <fluttertoast/FluttertoastPlugin.h>
+#else
+@import fluttertoast;
+#endif
+
+#if __has_include(<shared_preferences/SharedPreferencesPlugin.h>)
 #import <shared_preferences/SharedPreferencesPlugin.h>
+#else
+@import shared_preferences;
+#endif
 
 @implementation GeneratedPluginRegistrant
 

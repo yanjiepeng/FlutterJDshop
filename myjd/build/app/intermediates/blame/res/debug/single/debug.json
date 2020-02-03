@@ -261,7 +261,7 @@
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\layout_toast_custom.xml.flat",
-        "source": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\fluttertoast\\intermediates\\packaged_res\\debug\\layout\\toast_custom.xml"
+        "source": "C:\\Users\\17780\\.gradle\\caches\\transforms-1\\files-1.1\\fluttertoast_release-1.0.aar\\d7b0b2e7469f0868386904cd99f5764a\\res\\layout\\toast_custom.xml"
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
@@ -713,7 +713,7 @@
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\layout_chrome_custom_tabs_layout.xml.flat",
-        "source": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\flutter_inappbrowser\\intermediates\\packaged_res\\debug\\layout\\chrome_custom_tabs_layout.xml"
+        "source": "C:\\Users\\17780\\.gradle\\caches\\transforms-1\\files-1.1\\flutter_inappbrowser_release-1.0.aar\\9de447ff8bb45935c83da3134410c10c\\res\\layout\\chrome_custom_tabs_layout.xml"
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\drawable_abc_cab_background_top_material.xml.flat",
@@ -789,7 +789,7 @@
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\drawable_toast_bg.xml.flat",
-        "source": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\fluttertoast\\intermediates\\packaged_res\\debug\\drawable\\toast_bg.xml"
+        "source": "C:\\Users\\17780\\.gradle\\caches\\transforms-1\\files-1.1\\fluttertoast_release-1.0.aar\\d7b0b2e7469f0868386904cd99f5764a\\res\\drawable\\toast_bg.xml"
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -1213,7 +1213,7 @@
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\layout_activity_web_view.xml.flat",
-        "source": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\flutter_inappbrowser\\intermediates\\packaged_res\\debug\\layout\\activity_web_view.xml"
+        "source": "C:\\Users\\17780\\.gradle\\caches\\transforms-1\\files-1.1\\flutter_inappbrowser_release-1.0.aar\\9de447ff8bb45935c83da3134410c10c\\res\\layout\\activity_web_view.xml"
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
@@ -1365,7 +1365,7 @@
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\menu_menu_main.xml.flat",
-        "source": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\flutter_inappbrowser\\intermediates\\packaged_res\\debug\\menu\\menu_main.xml"
+        "source": "C:\\Users\\17780\\.gradle\\caches\\transforms-1\\files-1.1\\flutter_inappbrowser_release-1.0.aar\\9de447ff8bb45935c83da3134410c10c\\res\\menu\\menu_main.xml"
     },
     {
         "merged": "G:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
