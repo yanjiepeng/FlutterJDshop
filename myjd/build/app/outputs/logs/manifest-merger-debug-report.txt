@@ -7,6 +7,7 @@ INJECTED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop
 MERGED from G:\project\flutterDemo\flutter_jd_shop\FlutterJDshop\FlutterJDshop\myjd\android\app\src\main\AndroidManifest.xml:1:1-33:12
 MERGED from [io.github.ponnamkarthik.toast.fluttertoast:fluttertoast_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\fluttertoast_release-1.0.aar\d7b0b2e7469f0868386904cd99f5764a\AndroidManifest.xml:2:1-7:12
 MERGED from [io.flutter.plugins.sharedpreferences:shared_preferences_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\shared_preferences_release-1.0.aar\d527d607878a52e9729514f40e758a34\AndroidManifest.xml:2:1-7:12
+MERGED from [com.example.citypickers:city_pickers_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\city_pickers_release-1.0.aar\a2165c6285588231c8cd234a5c6686fd\AndroidManifest.xml:2:1-7:12
 MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.webkit:webkit:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\webkit-1.0.0.aar\f1244a73c1a13d41fe3d35e79aff2c04\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.browser:browser:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\8ab617e251b0b29c2865683b358319fb\AndroidManifest.xml:17:1-22:12
@@ -107,6 +108,8 @@ MERGED from [io.github.ponnamkarthik.toast.fluttertoast:fluttertoast_release:1.0
 MERGED from [io.github.ponnamkarthik.toast.fluttertoast:fluttertoast_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\fluttertoast_release-1.0.aar\d7b0b2e7469f0868386904cd99f5764a\AndroidManifest.xml:5:5-44
 MERGED from [io.flutter.plugins.sharedpreferences:shared_preferences_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\shared_preferences_release-1.0.aar\d527d607878a52e9729514f40e758a34\AndroidManifest.xml:5:5-44
 MERGED from [io.flutter.plugins.sharedpreferences:shared_preferences_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\shared_preferences_release-1.0.aar\d527d607878a52e9729514f40e758a34\AndroidManifest.xml:5:5-44
+MERGED from [com.example.citypickers:city_pickers_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\city_pickers_release-1.0.aar\a2165c6285588231c8cd234a5c6686fd\AndroidManifest.xml:5:5-44
+MERGED from [com.example.citypickers:city_pickers_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\city_pickers_release-1.0.aar\a2165c6285588231c8cd234a5c6686fd\AndroidManifest.xml:5:5-44
 MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:5:5-44
 MERGED from [com.pichillilorenzo.flutter_inappbrowser:flutter_inappbrowser_release:1.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\flutter_inappbrowser_release-1.0.aar\9de447ff8bb45935c83da3134410c10c\AndroidManifest.xml:5:5-44
 MERGED from [androidx.webkit:webkit:1.0.0] C:\Users\17780\.gradle\caches\transforms-1\files-1.1\webkit-1.0.0.aar\f1244a73c1a13d41fe3d35e79aff2c04\AndroidManifest.xml:20:5-44
