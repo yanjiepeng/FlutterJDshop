@@ -1,5 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
+import 'package:myjd/config/config.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
+import 'package:myjd/service/SignService.dart';
+import 'package:myjd/service/UserService.dart';
 
 class AddressListPage extends StatefulWidget {
   @override
@@ -7,6 +12,37 @@ class AddressListPage extends StatefulWidget {
 }
 
 class _AddressListPageState extends State<AddressListPage> {
+  List _addressList = [];
+
+  _getAddressList() async {
+    var userInfo = await UserService.getUserInfo();
+
+    var tempJson = {"uid": userInfo[0]['_id'], "salt": userInfo[0]['salt']};
+
+    String sign = SignService.getSign(tempJson);
+
+    var api =
+        '${Config.domain}api/addressList?uid=${userInfo[0]['_id']}&sign=$sign';
+
+    var response = await Dio().get(api);
+
+    setState(() {
+      this._addressList = response.data['result'];
+    });
+
+    print(response);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this._getAddressList();
+
+    eventBus.on<AddressEvent>().listen((event) {
+      this._getAddressList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
@@ -18,42 +54,25 @@ class _AddressListPageState extends State<AddressListPage> {
       body: Container(
         child: Stack(
           children: <Widget>[
-            ListView(
-              children: <Widget>[
-                ListTile(
-                  leading: Icon(
-                    Icons.check,
-                    color: Colors.red,
-                  ),
-                  title: Text('张三 123455666'),
-                  subtitle: Text('北京市海淀区西二旗'),
-                  trailing: Icon(Icons.edit, color: Colors.blue),
-                ),
-                Divider(
-                  height: 20,
-                ),
-                ListTile(
-                  leading: Icon(
-                    Icons.check,
-                    color: Colors.red,
-                  ),
-                  title: Text('张三 123455666'),
-                  subtitle: Text('北京市海淀区西二旗'),
-                  trailing: Icon(Icons.edit, color: Colors.blue),
-                ),
-                Divider(
-                  height: 20,
-                ),
-                ListTile(
-                  leading: Icon(
-                    Icons.check,
-                    color: Colors.red,
-                  ),
-                  title: Text('张三 123455666'),
-                  subtitle: Text('北京市海淀区西二旗'),
-                  trailing: Icon(Icons.edit, color: Colors.blue),
-                ),
-              ],
+            ListView.builder(
+              itemBuilder: (context, index) {
+                return Column(
+                  children: <Widget>[
+                    SizedBox(height: 20),
+                    ListTile(
+                      leading: this._addressList[index]['default_address'] == 1
+                          ? Icon(Icons.check, color: Colors.red)
+                          : Text(''),
+                      title: Text(
+                          '${this._addressList[index]['name']}      ${this._addressList[index]['phone']}'),
+                      subtitle: Text('${this._addressList[index]['address']}'),
+                      trailing: Icon(Icons.edit, color: Colors.blue),
+                    ),
+                    Divider(height: 20)
+                  ],
+                );
+              },
+              itemCount: this._addressList.length,
             ),
             Positioned(
               child: Container(

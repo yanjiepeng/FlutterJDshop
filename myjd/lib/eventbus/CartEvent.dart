@@ -25,3 +25,8 @@ class UserEvent {
   String str;
   UserEvent(this.str);
 }
+
+class AddressEvent {
+  String str;
+  AddressEvent(this.str);
+}

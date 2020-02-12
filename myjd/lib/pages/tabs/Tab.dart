@@ -5,7 +5,6 @@ import 'package:myjd/pages/Category.dart';
 import 'package:myjd/pages/Home.dart';
 import 'package:myjd/pages/Mine.dart';
 import 'package:myjd/pages/ShopCart.dart';
-import 'package:myjd/service/SignService.dart';
 
 class Tabs extends StatefulWidget {
   @override
@@ -50,7 +49,6 @@ class _TabsState extends State<Tabs> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     event.dispose();
   }
@@ -58,7 +56,6 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
-    SignService.getSign('123');
 
     return Scaffold(
       appBar: getAppBar(this._currentIndex),

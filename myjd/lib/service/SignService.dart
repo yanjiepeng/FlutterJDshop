@@ -4,27 +4,23 @@ import 'dart:convert';
 
 class SignService {
 //转换 API数据 到签名检验 API数据
-  static getSign(json) {
-    Map addressListAttr = {"uid": '1', "age": 10, "salt": 'xxxxxxxx'};
+  static String getSign(json) {
 
-    var attrKeys = addressListAttr.keys.toList();
+    var attrKeys = json.keys.toList();
 
     attrKeys.sort();
-
-    print(attrKeys);
 
     String str = '';
 
     for (var i = 0; i < attrKeys.length; i++) {
-      str += '${attrKeys[i]}${addressListAttr[attrKeys[i]]}';
+      str += '${attrKeys[i]}${json[attrKeys[i]]}';
     }
 
-    print(str);
 
     //调用MD5加密
-    print (md5.convert(utf8.encode(str)));
+    
 
-
-
+    return  (md5.convert(utf8.encode(str))).toString();
+    
   }
 }
