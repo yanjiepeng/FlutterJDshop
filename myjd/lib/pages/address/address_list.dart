@@ -33,6 +33,25 @@ class _AddressListPageState extends State<AddressListPage> {
     print(response);
   }
 
+  //修改默认收货地址
+  _modifyDefalutAddress(id) async {
+    List userinfo = await UserService.getUserInfo();
+
+    var tempJson = {
+      "uid": userinfo[0]['_id'],
+      "id": id,
+      "salt": userinfo[0]["salt"]
+    };
+
+    var sign = SignService.getSign(tempJson);
+
+    var api = '${Config.domain}api/changeDefaultAddress';
+    var response = await Dio()
+        .post(api, data: {"uid": userinfo[0]['_id'], "id": id, "sign": sign});
+    Navigator.pop(context);
+    eventBus.fire(DefaultAddressEvent(''));
+  }
+
   @override
   void initState() {
     super.initState();
@@ -63,8 +82,13 @@ class _AddressListPageState extends State<AddressListPage> {
                       leading: this._addressList[index]['default_address'] == 1
                           ? Icon(Icons.check, color: Colors.red)
                           : Text(''),
-                      title: Text(
-                          '${this._addressList[index]['name']}      ${this._addressList[index]['phone']}'),
+                      title: InkWell(
+                        onTap: () {
+                          _modifyDefalutAddress(this._addressList[index]['_id']);
+                        },
+                        child: Text(
+                            '${this._addressList[index]['name']}      ${this._addressList[index]['phone']}'),
+                      ),
                       subtitle: Text('${this._addressList[index]['address']}'),
                       trailing: Icon(Icons.edit, color: Colors.blue),
                     ),

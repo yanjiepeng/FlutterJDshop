@@ -1,4 +1,4 @@
-#Wed Feb 12 14:54:03 CST 2020
+#Sun Feb 16 15:36:38 CST 2020
 base.0=G\:\\project\\flutterDemo\\flutter_jd_shop\\FlutterJDshop\\FlutterJDshop\\myjd\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

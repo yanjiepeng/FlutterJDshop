@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/config/config.dart';
+import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/provider/Checkout.dart';
+import 'package:myjd/service/SignService.dart';
 import 'package:myjd/service/UserService.dart';
 import 'package:provider/provider.dart';
+import 'package:dio/dio.dart';
+import 'package:myjd/config/config.dart';
 
 class CheckoutPage extends StatefulWidget {
   @override
@@ -12,6 +16,7 @@ class CheckoutPage extends StatefulWidget {
 
 class _CheckoutPageState extends State<CheckoutPage> {
   bool isLogin;
+  List _defalutAddressList = [];
 
   Widget checkOutItem(item) {
     return Row(
@@ -66,9 +71,34 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 //    getUserLoginState();
+
+    _getDefaultAddress();
+
+    eventBus.on<DefaultAddressEvent>().listen((data) {
+      _getDefaultAddress();
+    });
+  }
+
+  //获取默认收货地址
+  _getDefaultAddress() async {
+    List userinfo = await UserService.getUserInfo();
+
+    // print('1234');
+    var tempJson = {"uid": userinfo[0]["_id"], "salt": userinfo[0]["salt"]};
+
+    var sign = SignService.getSign(tempJson);
+
+    var api =
+        '${Config.domain}api/oneAddressList?uid=${userinfo[0]["_id"]}&sign=${sign}';
+    var response = await Dio().get(api);
+
+    print(response);
+
+    setState(() {
+      this._defalutAddressList = response.data['result'];
+    });
   }
 
   @override
@@ -90,32 +120,41 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     SizedBox(
                       height: 10,
                     ),
-                    ListTile(
-                      onTap: (){
-                        Navigator.pushNamed(context, '/addresslist');
-                      },
-                      leading: Icon(
-                        Icons.add_location,
-                      ),
-                      title: Center(child: Text('请添加收货地址')),
-                      trailing: Icon(Icons.navigate_next),
-                    ),
+                    this._defalutAddressList.length > 0
+                        ? ListTile(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/addresslist');
+                            },
+                            title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                    '${this._defalutAddressList[0]['name']}    ${this._defalutAddressList[0]['phone']}'),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                    '${this._defalutAddressList[0]['address']}'),
+                              ],
+                            ),
+                            trailing: Icon(Icons.navigate_next),
+                          )
+                        : ListTile(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/addressadd');
+                            },
+                            leading: Icon(
+                              Icons.add_location,
+                            ),
+                            title: Center(child: Text('请添加收货地址')),
+                            trailing: Icon(Icons.navigate_next),
+                          ),
                     SizedBox(
                       height: 10,
                     ),
-//                    ListTile(
-//                      title: Column(
-//                        crossAxisAlignment: CrossAxisAlignment.start,
-//                        children: <Widget>[
-//                          Text('张三  15211111111'),
-//                          SizedBox(
-//                            height: 10,
-//                          ),
-//                          Text('北京市海淀区西二旗'),
-//                        ],
-//                      ),
-//                      trailing: Icon(Icons.navigate_next),
-//                    )
+                    Divider(
+                      height: 1,
+                    )
                   ],
                 ),
               ),

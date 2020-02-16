@@ -30,3 +30,8 @@ class AddressEvent {
   String str;
   AddressEvent(this.str);
 }
+
+class DefaultAddressEvent {
+  String str ;
+  DefaultAddressEvent(this.str);
+}
