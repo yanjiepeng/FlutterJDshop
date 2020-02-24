@@ -35,7 +35,7 @@ final routes = {
   '/addadress': (context) => AddAddressPage(),
 
   '/addressadd': (context) => AddAdressPage(),
-  '/addressedit': (context) => EditAddressPage(),
+  '/addressedit': (context ,{arguments}) => EditAddressPage(arguments: arguments),
   '/addresslist': (context) => AddressListPage(),
 };
 

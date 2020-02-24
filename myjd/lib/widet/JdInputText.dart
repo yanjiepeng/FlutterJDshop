@@ -7,12 +7,14 @@ class JdInputText extends StatelessWidget {
   final Object onChanged;
   final int maxLines;
   final double height;
+  final TextEditingController controller;
 
   JdInputText(
       {Key key,
       this.text = "输入内容",
       this.password = false,
       this.onChanged = null ,
+      this.controller = null,
       this.maxLines = 1 , 
       this.height = 68.0 })
       : super(key: key);
@@ -21,6 +23,7 @@ class JdInputText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: TextField(
+        controller: this.controller,
         maxLines: this.maxLines,
         obscureText: this.password,
         decoration: InputDecoration(
