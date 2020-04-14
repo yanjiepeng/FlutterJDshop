@@ -133,6 +133,9 @@ class _AddressListPageState extends State<AddressListPage> {
        "id":id,
        "sign":sign
     });    
+
+    eventBus.fire(DefaultAddressEvent(''));
+
     Navigator.pop(context);
     
   }
