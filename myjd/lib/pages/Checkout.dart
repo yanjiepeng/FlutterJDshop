@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:myjd/common/ScreenAdapter.dart';
 import 'package:myjd/config/config.dart';
 import 'package:myjd/eventbus/CartEvent.dart';
 import 'package:myjd/provider/Checkout.dart';
+import 'package:myjd/service/CheckoutService.dart';
 import 'package:myjd/service/SignService.dart';
 import 'package:myjd/service/UserService.dart';
 import 'package:provider/provider.dart';
@@ -218,7 +221,58 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () async {
+
+                            //获取商品数据
+
+                           List user= await UserService.getUserInfo();
+                           
+                          //api要求保留一位小数
+                           var totalPrice = CheckoutService.getTotalPrice(checkoutProvider.chckoutList).toStringAsFixed(1);
+
+                           var sign = SignService.getSign(
+
+                              {
+                                "uid":user[0]['_id'],
+                                "phone":this._defalutAddressList[0]['phone'],
+                                "address":this._defalutAddressList[0]['address'],
+                                "name":this._defalutAddressList[0]['name'],
+                                "all_price":totalPrice,
+                                "products":json.encode(checkoutProvider.chckoutList),
+                                "salt":user[0]['salt']
+
+                              }
+
+                           );
+
+
+                           var api = '${Config.domain}api/doOrder';
+
+                           var response = await new Dio().post(api , data:{
+
+
+                                "uid":user[0]['_id'],
+                                "phone":this._defalutAddressList[0]['phone'],
+                                "address":this._defalutAddressList[0]['address'],
+                                "name":this._defalutAddressList[0]['name'],
+                                "all_price":totalPrice,
+                                "products":json.encode(checkoutProvider.chckoutList),
+                                "sign":sign
+
+                           }) ;
+
+
+                            print(response);
+
+                            if(response.data['success']){
+
+                              print('提交订单成功，跳转到支付页面');
+
+                                Navigator.pushNamed(context,'/pay');
+                            }
+
+
+                        },
                         child: Text(
                           '立即下单',
                           style: TextStyle(color: Colors.white),

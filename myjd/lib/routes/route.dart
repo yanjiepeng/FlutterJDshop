@@ -11,6 +11,7 @@ import 'package:myjd/pages/Checkout.dart';
 import 'package:myjd/pages/address/address_edit.dart';
 import 'package:myjd/pages/address/address_list.dart';
 import 'package:myjd/pages/address/adress_add.dart';
+import 'package:myjd/pages/pay.dart';
 import '../pages/tabs/Tab.dart';
 import '../pages/ProductList.dart';
 import 'package:myjd/pages/ShopCart.dart';
@@ -37,6 +38,7 @@ final routes = {
   '/addressadd': (context) => AddAdressPage(),
   '/addressedit': (context ,{arguments}) => EditAddressPage(arguments: arguments),
   '/addresslist': (context) => AddressListPage(),
+  '/pay': (context) => PayPage(),
 };
 
 //固定写法
