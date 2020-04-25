@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:myjd/widet/JdButton.dart';
 
 class PayPage extends StatefulWidget {
@@ -7,6 +8,21 @@ class PayPage extends StatefulWidget {
 }
 
 class _PayPageState extends State<PayPage> {
+  List payList = [
+    {
+      "title": "支付宝支付",
+      "checked": true,
+      "image":
+          'https://ss3.bdstatic.com/yrwDcj7w0QhBkMak8IuT_XF5ehU5bvGh7c50/logopic/a9936a369e82e0c6c42112674a5220e8_fullsize.jpg',
+    },
+    {
+      "title": "微信支付",
+      "checked": false,
+      "image":
+          'https://dss2.bdstatic.com/6Ot1bjeh1BF3odCf/it/u=295952033,3878422369&fm=74&app=80&f=JPEG&size=f121,121?sec=1880279984&t=dd0777bbdf4705ba4225acd76f7e910e',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,34 +30,43 @@ class _PayPageState extends State<PayPage> {
       body: Column(
         children: <Widget>[
           Container(
-            height: 400,
-            child: ListView(
+            child: Column(
               children: <Widget>[
-
-
-                SizedBox(height: 20,),
-                
-
-                ListTile(
-                  leading: Image.network(
-                      'https://ss3.bdstatic.com/yrwDcj7w0QhBkMak8IuT_XF5ehU5bvGh7c50/logopic/a9936a369e82e0c6c42112674a5220e8_fullsize.jpg'),
-                  title: Text('支付宝'),
-                  trailing: Icon(Icons.check),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: payList.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: <Widget>[
+                        Padding(
+                          padding:
+                              const EdgeInsets.fromLTRB(8.0, 12.0, 8.0, 12.0),
+                          child: ListTile(
+                            leading: Image.network(payList[index]['image']),
+                            title: Text('${payList[index]['title']}'),
+                            trailing: payList[index]['checked']
+                                ? Icon(Icons.check)
+                                : Text(''),
+                            onTap: () {
+                              setState(() {
+                                for (var i = 0; i < payList.length; i++) {
+                                  payList[i]['checked'] = false;
+                                }
+                                payList[index]['checked'] = true;
+                              });
+                            },
+                          ),
+                        ),
+                        Divider(),
+                      ],
+                    );
+                  },
                 ),
-                Divider(),
-                ListTile(
-                  leading: Image.network(
-                      'https://dss2.bdstatic.com/6Ot1bjeh1BF3odCf/it/u=295952033,3878422369&fm=74&app=80&f=JPEG&size=f121,121?sec=1880279984&t=dd0777bbdf4705ba4225acd76f7e910e'),
-                  title: Text('微信支付'),
-                  trailing: Icon(Icons.check),
-                ),
-                Divider(),
-
-                JdButton(text: "去支付",color: Colors.red, cb: (){
-
-                    
-
-                },)
+                SizedBox(height:20),
+                JdButton(
+                  color: Colors.red,
+                  text: '去支付',
+                )
               ],
             ),
           )
